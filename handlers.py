@@ -1,7 +1,10 @@
 import json
 import os
 
-with open(os.path)
+with open(os.path.join('data', 'questions.json')) as file:
+    book_n_questions = json.load(file)
+all_questions = [for question in book_n_questions[book] for book in book_n_questions.keys()]
+
 
 
 def dialog_handler(event: dict, response: dict) -> dict:
