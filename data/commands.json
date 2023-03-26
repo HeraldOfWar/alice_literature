@@ -1,3 +1,90 @@
 {
-
+	"menu": {
+		"text": "",
+		"tts": "",
+		"card": {
+			"type": "ItemsList",
+			"header": {
+				"text": "Литература и все-все-все! Меню"
+			},
+			"items": [
+				{
+					"image_id": "<image_id>",
+					"title": "Викторина на выживание",
+					"description": "",
+					"button": {
+						"text": "Начать!",
+						"payload": {}
+					}
+				},
+				{
+					"image_id": "<image_id>",
+					"title": "Общая викторина",
+					"description": "",
+					"button": {
+						"text": "Начать!",
+						"payload": {}
+					}
+				},
+				{
+					"image_id": "<image_id>",
+					"title": "Библиотека",
+					"description": "",
+					"button": {
+						"text": "Начать!",
+						"payload": {}
+					}
+				}
+			],
+			"footer": {
+				"text": "Текст блока под изображением.",
+				"button": {
+					"text": "Надпись на кнопке",
+					"payload": {}
+				}
+			}
+		},
+		"buttons": [],
+		"next_mode": false
+	},
+	"description": {
+		"text": "",
+		"tts": "",
+		"card": {
+			"type": "BigImage",
+			"image_id": "",
+			"title": "Описание навыка",
+			"description": ""
+		},
+		"buttons": [
+			{
+				"title": "Продолжить",
+				"payload": {},
+				"hide": true
+			},
+			{
+				"title": "Помощь",
+				"payload": {},
+				"hide": true
+			}
+		],
+		"next_mode": false
+	},
+	"restart": {
+		"text": "Уверен, что хочешь закончить попытку? После подтверждения восстановить прогресс уже невозможно.",
+		"tts": "Уверен, что хочешь закончить попытку? После подтверждения восстановить прогресс уже невозможно.",
+		"card": {},
+		"buttons": [
+			{
+				"title": "Да",
+				"payload": {},
+				"hide": true
+			},
+			{
+				"title": "Нет, постойте!",
+				"payload": {},
+				"hide": true
+			}
+		]
+	}
 }
