@@ -69,7 +69,7 @@
 					"title": "Суперигра",
 					"description": "1",
 					"button": {
-						"text": "Начать!",
+						"text": "викторина",
 						"payload": {}
 					}
 				},
@@ -78,7 +78,7 @@
 					"title": "Викторина",
 					"description": "2",
 					"button": {
-						"text": "Начать!",
+						"text": "викторина",
 						"payload": {}
 					}
 				},
@@ -87,7 +87,7 @@
 					"title": "Библиотека",
 					"description": "3",
 					"button": {
-						"text": "Поиск",
+						"text": "библиотека",
 						"payload": {}
 					}
 				}
