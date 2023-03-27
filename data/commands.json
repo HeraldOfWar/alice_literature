@@ -66,7 +66,7 @@
 			"items": [
 				{
 					"image_id": "965417/cc1a49cca076dd688fb3",
-					"title": "Викторина на выживание",
+					"title": "Суперигра",
 					"description": "1",
 					"button": {
 						"text": "Начать!",
@@ -75,7 +75,7 @@
 				},
 				{
 					"image_id": "1656841/0c521e4280afeb43bd3e",
-					"title": "Общая викторина",
+					"title": "Викторина",
 					"description": "2",
 					"button": {
 						"text": "Начать!",
