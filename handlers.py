@@ -46,7 +46,7 @@ def dialog_handler(event: dict, context: Any) -> dict:
     }
 
     if not event['state']['user']:
-        # собираем стейты для нового пользователя
+        # собираем стейты для нового пользователя и возвращаем приветственное сообщение
         res['user_state_update'] = {
             'name': '',
             'mode': 'menu',
@@ -60,10 +60,13 @@ def dialog_handler(event: dict, context: Any) -> dict:
                            'station': False},
             'last_response': {}
         }
-        res['response']['text'] = commands['start']['text']
-        res['response']['tts'] = commands['start']['tts']
-        res['response']['buttons'] = commands['start']['buttons']
-        res['response']['card'] = commands['start']['card']
+        res = save_response(
+            res=res,
+            text=commands['start']['text'],
+            tts=commands['start']['tts'],
+            buttons=commands['start']['buttons'],
+            card=commands['start']['card']
+        )
         return res
     else:
         res['user_state_update'] = event['state']['user'].copy()
