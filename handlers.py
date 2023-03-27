@@ -21,15 +21,16 @@ MISUNDERSTANDING = [
     "Простите, не расслышал. Повторите, пожалуйста.",
     "Ошибка! Ваш запрос оказался недостаточно полным. Попробуйте ещё раз.",
     "Даже не знаю, что сказать... Попробуйте ответить ещё раз.",
-    "Если вам что-то непонятно, то скажите \"Меню\", либо скажите \"Помощь\"."
+    "Если вам что-то непонятно, то скажите \"Меню\" или \"Помощь\"."
 ]
-WRONGANS = ["Упс! Вы ответили неверно...",
-            "Неверный ответ.",
-            "Вы ошиблись",
-            "Не хотел я этого говорить, но Вы ошиблись.",
-            "Ошибка!",
-            "Как бы вам сказать, что вы ошиблись..."
-             ]
+WRONGANS = [
+    "Упс! Вы ответили неверно...",
+    "Неверный ответ.",
+    "Вы ошиблись.",
+    "Не хотел я этого говорить, но Вы ошиблись.",
+    "Ошибка!",
+    "Как бы вам сказать, что Вы ошиблись..."
+]
 TRUEANS = ["Правильно!", "Верно!", "Абсолютно точно", "Ты молодец! Всё правильно", "Вы великолепны, правильно!"]
 
 
@@ -51,11 +52,13 @@ def dialog_handler(event: dict, context: Any) -> dict:
             'mode': 'menu',
             'books': [],
             'questions': [],
+            'points': 0,
             'station': False,
             'last_state': {'mode': 'start',
                            'books': [],
                            'questions': [],
-                           'station': False}
+                           'station': False},
+            'last_response': {}
         }
         res['response']['text'] = commands['start']['text']
         res['response']['tts'] = commands['start']['tts']
@@ -67,11 +70,37 @@ def dialog_handler(event: dict, context: Any) -> dict:
 
     mode = res['user_state_update']['mode']
 
+    if 'YANDEX.HELP' in list(event['request']['nlu']['intents'].keys()):
+        if mode == 'quiz' or mode == 'super_quiz' or mode == 'library':
+            res = save_response(
+                text=commands[mode]['text'],
+                tts=commands[mode]['tts'],
+                buttons=commands[mode]['buttons'],
+                card=commands[mode]['card']
+            )
+        else:
+            res = save_response(
+                text=commands['help']['text'],
+                tts=commands['help']['tts'],
+                buttons=commands['help']['buttons'],
+                card=commands['help']['card']
+            )
+        return res
+
+    if 'YANDEX.WHAT_CAN_YOU_DO' in list(event['request']['nlu']['intents'].keys()):
+        res = save_response(
+            text=commands['help']['text'],
+            tts=commands['help']['tts'],
+            buttons=commands['help']['buttons'],
+            card=commands['help']['card']
+        )
+        return res
+
     if 'YANDEX.REPEAT' in list(event['request']['nlu']['intents'].keys()):
         # если пользователь просит повторить сообщение
         repeat_handler(res)
 
-    elif mode in commands.keys():
+    if mode in commands.keys():
         # если пользователь вызывает команду
         return commands_handler(event, res)
 
@@ -111,4 +140,18 @@ def save_state(res: dict) -> dict:
         'station': copy_res['station']
     }
     return res
+
+
+def save_response(res: dict, text: str, tts: str, buttons: list, card: dict = None) -> dict:
+    res['response']['text'] = text
+    res['response']['tts'] = tts
+    res['response']['buttons'] = buttons
+    if card:
+        res['response']['card'] = card
+    res['last_response'] = {
+        'text': text,
+        'tts': tts,
+        'buttons': buttons,
+        'card': card
+    }
     return res
