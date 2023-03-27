@@ -2,18 +2,7 @@
 	"start": {
 		"text": "ok",
 		"tts": "ok",
-		"buttons": [
-			{
-				"title": "Продолжить",
-				"payload": {},
-				"hide": true
-			},
-			{
-				"title": "Помощь",
-				"payload": {},
-				"hide": true
-			}
-		],
+		"buttons": [],
 		"card": {
 			"type": "BigImage",
 			"image_id": "1030494/7391b8f16e5748af854f",

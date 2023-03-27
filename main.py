@@ -38,8 +38,7 @@ def main():
     # Отправляем request.json и response в функцию dialog_handler.
     # Она сформирует оставшиеся поля JSON, которые отвечают
     # непосредственно за ведение диалога
-    response = dialog_handler(event, response)
-
+    response = dialog_handler(request.json, response)
 
     logging.info(f'Response:  {response!r}')  # лог ответа
 
