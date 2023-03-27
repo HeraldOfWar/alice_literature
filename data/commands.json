@@ -1,61 +1,62 @@
 {
+	"start": {
+		"text": "Добро пожаловать в навык \"Литература и все-все-все\"! Здесь вас ждут интересные викторины по литературе: как по конкретным произведениям, так и на общие темы. А если вас и не интересуют викторины, можете воспользоваться нашей внутренней библиотекой! ",
+		"tts": "Привет",
+		"buttons": [],
+		"card": {
+			"type": "BigImage",
+			"image_id": "1030494/7391b8f16e5748af854f",
+			"title": "Добро пожаловать!",
+			"description": "прив"
+		}
+	},
 	"menu": {
-		"text": "",
-		"tts": "",
+		"text": "Добро пожало",
+		"tts": "sdfsfs",
+		"buttons": [],
 		"card": {
 			"type": "ItemsList",
 			"header": {
-				"text": "Литература и все-все-все! Меню"
+				"text": "ЛИТЕРАТУРА И ВСЕ-ВСЕ-ВСЕ! МЕНЮ"
 			},
 			"items": [
 				{
-					"image_id": "<image_id>",
+					"image_id": "965417/cc1a49cca076dd688fb3",
 					"title": "Викторина на выживание",
-					"description": "",
+					"description": "1",
 					"button": {
 						"text": "Начать!",
 						"payload": {}
 					}
 				},
 				{
-					"image_id": "<image_id>",
+					"image_id": "1656841/0c521e4280afeb43bd3e",
 					"title": "Общая викторина",
-					"description": "",
+					"description": "2",
 					"button": {
 						"text": "Начать!",
 						"payload": {}
 					}
 				},
 				{
-					"image_id": "<image_id>",
+					"image_id": "1540737/8eba28980f1c98fade73",
 					"title": "Библиотека",
-					"description": "",
+					"description": "3",
 					"button": {
-						"text": "Начать!",
+						"text": "Поиск",
 						"payload": {}
 					}
 				}
 			],
 			"footer": {
-				"text": "Текст блока под изображением.",
-				"button": {
-					"text": "Надпись на кнопке",
-					"payload": {}
-				}
+				"text": "sdfsdfsdfsfdf",
+				"button": {}
 			}
-		},
-		"buttons": [],
-		"next_mode": false
+		}
 	},
 	"description": {
 		"text": "",
 		"tts": "",
-		"card": {
-			"type": "BigImage",
-			"image_id": "",
-			"title": "Описание навыка",
-			"description": ""
-		},
 		"buttons": [
 			{
 				"title": "Продолжить",
@@ -68,12 +69,16 @@
 				"hide": true
 			}
 		],
-		"next_mode": false
+		"card": {
+			"type": "BigImage",
+			"image_id": "",
+			"title": "Описание навыка",
+			"description": ""
+		}
 	},
 	"restart": {
 		"text": "Уверен, что хочешь закончить попытку? После подтверждения восстановить прогресс уже невозможно.",
 		"tts": "Уверен, что хочешь закончить попытку? После подтверждения восстановить прогресс уже невозможно.",
-		"card": {},
 		"buttons": [
 			{
 				"title": "Да",
@@ -85,6 +90,7 @@
 				"payload": {},
 				"hide": true
 			}
-		]
+		],
+		"card": {}
 	}
 }

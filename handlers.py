@@ -111,3 +111,4 @@ def save_state(res: dict) -> dict:
         'station': copy_res['station']
     }
     return res
+    return res
