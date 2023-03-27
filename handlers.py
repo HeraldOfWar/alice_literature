@@ -126,27 +126,26 @@ def dialog_handler(event: dict, context: Any) -> dict:
 
 
 def commands_handler(event: dict, res: dict) -> dict:
-    mode = res['user_state_update']['mode']
-    if mode == 'start':
+    if not res['user_state_update']['name']:
         if event['request']['nlu']['entities'] and 'YANDEX.FIO' == event['request']['nlu']['entities'][0]['type']:
             res['user_state_update']['name'] = event['request']['nlu']['entities'][0]['value'][
                 'first_name'].capitalize()
-        else:
             res = save_response(
                 res=res,
-                text='Пожалуйста, введите настоящее имя!',
-                tts='Пожалуйста, введите настоящее имя!',
-                buttons=[]
+                text=commands['menu']['text'],
+                tts=commands['menu']['tts'],
+                buttons=commands['menu']['buttons'],
+                card=commands['menu']['card']
             )
-            return res
-    res = save_response(
-        res=res,
-        text=commands[mode]['text'],
-        tts=commands[mode]['tts'],
-        buttons=commands[mode]['buttons'],
-        card=commands[mode]['card']
-    )
-    res = save_state(res)
+            res = save_state(res)
+        else:
+            res = error_handler(res, 'Пожалуйста, введите настоящее имя!')
+        return res
+    match res['user_state_update']['mode']:
+        case 'menu':
+            text = ' '.join(event['request']['nlu']['tokens'])
+            match text:
+                case
     return res
 
 
@@ -173,4 +172,14 @@ def save_response(res: dict, text: str, tts: str, buttons: list, card: dict = No
     if card:
         res['response']['card'] = card
         res['user_state_update']['last_response']['card'] = card
+    return res
+
+
+def error_handler(res: dict, err_message: str) -> dict:
+    res = save_response(
+        res=res,
+        text=err_message,
+        tts=err_message,
+        buttons=[]
+    )
     return res
