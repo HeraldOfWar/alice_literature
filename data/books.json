@@ -1,3 +1,77 @@
 {
-	"преступление и наказание": ""
+	"преступление и наказание": {
+		"image_id": "",
+		"title": "Преступление и Наказание",
+        "button": {
+            "text": "Посмотреть",
+            "url": "https://example.com/",
+            "payload": {
+	            "title": "преступление и наказание"
+            }
+        },
+		"main_description": {
+			"image_id": "",
+			"title": "Основная информация",
+			"button": {
+				"text": "Посмотреть",
+				"payload": {
+					"title": "основная информация"
+				}
+			},
+			"card": {
+				"type": "BigImage",
+				"image_id": "",
+				"title": "Основная информация",
+				"description": ""
+			}
+		},
+		"char_description": {
+			"image_id": "",
+			"title": "Информация о героях",
+			"button": {
+				"text": "Посмотреть",
+				"payload": {
+					"title": "информация о героях"
+				}
+			},
+			"card": {
+				"type": "BigImage",
+				"image_id": "",
+				"title": "Информация о героях",
+				"description": ""
+			}
+		},
+		"facts": {
+			"image_id": "",
+			"title": "Интересные факты",
+			"button": {
+				"text": "Посмотреть",
+				"payload": {
+					"title": "интересные факты"
+				}
+			},
+			"card": {
+				"type": "BigImage",
+				"image_id": "",
+				"title": "Интересные факты",
+				"description": ""
+			}
+		},
+		"useful_links": {
+			"image_id": "",
+			"title": "Полезные ссылки",
+			"button": {
+				"text": "Посмотреть",
+				"payload": {
+					"title": "полезные ссылки"
+				}
+			},
+			"card": {
+				"type": "BigImage",
+				"image_id": "",
+				"title": "Полезные ссылки",
+				"description": ""
+			}
+		}
+	}
 }

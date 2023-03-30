@@ -13,7 +13,7 @@ with open(path.join('data', 'commands.json'), encoding='utf-8') as file:
     commands = load(file)
 
 SUPERGAME = {
-    2: ['Теперь у Вас 2 жизни.', 'Не переживайте, у Вас ещё целых две жизни.', 'С этого момента у Вас 2 жизни.'],
+    2: ['Теперь у Вас две жизни.', 'Не переживайте, у Вас ещё целых две жизни.', 'С этого момента у Вас две жизни.'],
     1: ['С этого момента у Вас нет права на ошибку!', 'Последняя жизнь! Ошибаться больше нельзя!',
         'Права на ошибку больше нет!'],
     0: ['Поражение..', 'Всё кончено!', 'Игра окончена...', 'Это конец!']
@@ -34,7 +34,8 @@ WRONGANS = [
     "Ошибка!",
     "Как бы вам сказать, что Вы ошиблись..."
 ]
-TRUEANS = ["Правильно!", "Верно!", "Абсолютно точно!", "Ты молодец! Всё правильно.", "Вы великолепны, правильно!", "Как неожиданно, Вы правы!"]
+TRUEANS = ["Правильно!", "Верно!", "Абсолютно точно!", "Ты молодец! Всё правильно.", "Вы великолепны, правильно!",
+           "Вы правы!"]
 
 IMAGES_FOR_QUESTIONS = ["1652229/3513b2e092b536a1db35", "997614/66778b95cc6e1a7b76f2",
                         "937455/75c64f8e40145a270655", "1533899/cdadf2f29b7b85d2d438",
@@ -59,8 +60,7 @@ AUTHORS = {"Л.Н. Толстой": "Лев Никол+аевич Толст+о�
            "А.П. Чехов": "Антон Павлович Ч+ехов",
            "А.С. Грибоедов": "Александр Сергеевич Грибоедов",
            "Г.К. Андерсен": "Ганс Кр+истиан Андерсен",
-           "Цитата из случайной книги": "",
-           "Итак, произведение": ""}
+           "Цитата из случайной книги": "Цитата из случайной книги"}
 
 
 def dialog_handler(event: dict, context: Any) -> dict:
@@ -77,7 +77,6 @@ def dialog_handler(event: dict, context: Any) -> dict:
     if not event['state']['user']:
         # собираем стейты для нового пользователя и возвращаем приветственное сообщение
         res['user_state_update'] = {
-            'name': '',
             'mode': 'menu',
             'books': [],
             'questions': [],
@@ -99,7 +98,6 @@ def dialog_handler(event: dict, context: Any) -> dict:
 
     if event['session']['message_id'] == 0:
         res['user_state_update'] = {
-            'name': res['user_state_update']['name'],
             'mode': 'menu',
             'books': [],
             'questions': [],
@@ -210,7 +208,6 @@ def dialog_handler(event: dict, context: Any) -> dict:
 
     if 'finish_game' in mode:
         res['user_state_update'] = {
-            'name': res['user_state_update']['name'],
             'mode': 'menu',
             'books': [],
             'questions': [],
@@ -333,20 +330,6 @@ def dialog_handler(event: dict, context: Any) -> dict:
 
 
 def menu_handler(event: dict, res: dict) -> dict:
-    if not res['user_state_update']['name']:
-        if event['request']['nlu']['entities'] and 'YANDEX.FIO' == event['request']['nlu']['entities'][0]['type']:
-            res['user_state_update']['name'] = event['request']['nlu']['entities'][0]['value'][
-                'first_name'].capitalize()
-            res = save_response(
-                res=res,
-                text=commands['menu']['text'],
-                tts=commands['menu']['tts'],
-                buttons=commands['menu']['buttons'],
-                card=commands['menu']['card']
-            )
-        else:
-            res = error_handler(res, 'Пожалуйста, введите настоящее имя!')
-        return res
     if event['request']['type'] == "ButtonPressed":
         text = [event['request']['payload']['title'].lower()]
     else:
@@ -435,9 +418,20 @@ def get_questions(res: dict) -> dict:
 
 def return_question(res: dict, question_original: dict) -> dict:
     question = question_original.copy()
-    question['card']['image_id'] = choice(IMAGES_FOR_QUESTIONS)
     question['card']['title'] = question['book']
-    question['tts'] += ' ' + question['book']
+    if not question['card']['image_id']:
+        question['card']['image_id'] = choice(IMAGES_FOR_QUESTIONS)
+
+    book = question['book']
+    if 'цитата' in book.lower() or 'картинка' in book.lower():
+        question['tts'] = book + ' sil <[250]> ' + question['tts']
+    else:
+        try:
+            author, book = AUTHORS[' '.join(book.split()[:2])], book[2:]
+            question['tts'] = author + ' ' + book + ' sil <[250]> ' + question['tts']
+        except Exception:
+            question['tts'] = 'Итак, следующая книга: ' + book + ' sil <[250]> ' + question['tts']
+
     res = save_response(
         res=res,
         text=question['text'],
