@@ -4777,28 +4777,28 @@
 				{
 					"title": "Баранкой",
 					"payload": {
-						"title": "Баранкой"
+						"title": "баранкой"
 					},
 					"hide": true
 				},
 				{
 					"title": "Леденцом",
 					"payload": {
-						"title": "Леденцом"
+						"title": "леденцом"
 					},
 					"hide": true
 				},
 				{
 					"title": "Колбасой",
 					"payload": {
-						"title": "Колбасой"
+						"title": "колбасой"
 					},
 					"hide": true
 				},
 				{
 					"title": "Пельменями",
 					"payload": {
-						"title": "Пельменями"
+						"title": "пельменями"
 					},
 					"hide": true
 				}
@@ -4830,28 +4830,28 @@
 				{
 					"title": "Полиграф",
 					"payload": {
-						"title": "Полиграф"
+						"title": "полиграф"
 					},
 					"hide": true
 				},
 				{
 					"title": "Станок",
 					"payload": {
-						"title": "Станок"
+						"title": "станок"
 					},
 					"hide": true
 				},
 				{
 					"title": "Шарик",
 					"payload": {
-						"title": "Шарик"
+						"title": "шарик"
 					},
 					"hide": true
 				},
 				{
 					"title": "Микроволновка",
 					"payload": {
-						"title": "Микроволновка"
+						"title": "микроволновка"
 					},
 					"hide": true
 				}
@@ -4880,14 +4880,14 @@
 				{
 					"title": "Миргород",
 					"payload": {
-						"title": "Миргород"
+						"title": "миргород"
 					},
 					"hide": true
 				},
 				{
 					"title": "Мертвые души",
 					"payload": {
-						"title": "Мертвые души"
+						"title": "мертвые души"
 					},
 					"hide": true
 				}
@@ -4918,21 +4918,21 @@
 				{
 					"title": "Москва",
 					"payload": {
-						"title": "Москва"
+						"title": "москва"
 					},
 					"hide": true
 				},
 				{
 					"title": "Киев",
 					"payload": {
-						"title": "Киев"
+						"title": "киев"
 					},
 					"hide": true
 				},
 				{
 					"title": "Санкт-Петербург",
 					"payload": {
-						"title": "Санкт-Петербург"
+						"title": "санкт-петербург"
 					},
 					"hide": true
 				}
