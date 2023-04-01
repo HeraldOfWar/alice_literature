@@ -16,7 +16,7 @@ SUPERGAME = {
     2: ['Теперь у Вас две жизни.', 'Не переживайте, у Вас ещё целых две жизни.', 'С этого момента у Вас две жизни.'],
     1: ['С этого момента у Вас нет права на ошибку!', 'Последняя жизнь! Ошибаться больше нельзя!',
         'Права на ошибку больше нет!'],
-    0: ['Поражение..', 'Всё кончено!', 'Игра окончена...', 'Это конец!']
+    0: ['Поражение...', 'Всё кончено!', 'Игра окончена...', 'Это конец!']
 }
 MISUNDERSTANDING = [
     "Прошу прощения, ответьте конкретнее.",
@@ -25,7 +25,7 @@ MISUNDERSTANDING = [
     "Ошибка! Ваш запрос оказался недостаточно полным. Попробуйте ещё раз.",
     "Даже не знаю, что сказать... Попробуйте ответить ещё раз.",
     "Если вам что-то непонятно, то скажите \"Меню\" или \"Помощь\".",
-    "Не понял вас. Попробуйте сказать разборчивее",
+    "Не понял вас. Попробуйте сказать разборчивее.",
 ]
 WRONGANS = [
     "Упс! Вы ответили неверно...", "Жаль, но ваш ответ не был верным.",
@@ -39,10 +39,10 @@ WRONGANS = [
     "Нет, к сожалению, это не верный ответ.",
     "Неправильно, но не переживайте, следующий вопрос будет проще.",
     "Очень близко, но не совсем.", "Ваш ответ был как шерсть на зубах – не совсем то, что нужно.",
-    "К сожалению, ваш ответ был настолько неправильным, что Шерлок Холмс "
+    "К сожалению, ваш ответ был настолько неправильным, что Шерлок Холмс."
     "воскликнул бы \"Элементарно, Ватсон, что это неправильно!\"",
     "Хотелось бы, чтобы ваш ответ был верен, но он так же далек от правильного, как Нептун от Меркурия.",
-    "К сожалению, ваш ответ был настолько неправильным, что он бы заставил "
+    "К сожалению, ваш ответ был настолько неправильным, что он бы заставил."
     "героя романа \"Идиот\" Достоевского покрутить головой."
 ]
 TRUEANS = [
@@ -136,15 +136,14 @@ def dialog_handler(event: dict, context: Any) -> dict:
             'station': res['user_state_update']['station'],
             'last_response': {}
         }
-        station = commands['station'].copy()
-        station['card']['description'] = 'Добро пожаловать в навык "Литературный гений"!' + station['card'][
-                                                                                                'description'][8:]
+        station = commands['station']['card'].copy()
+        station['description'] = 'Добро пожаловать в навык "Литературный гений"!' + station['description'][8:]
         res = save_response(
             res=res,
-            text='Добро пожаловать в навык "Литературный гений"!' + station['text'][8:],
-            tts='Добро пожаловать в навык "Литературный гений"!' + station['tts'][8:],
-            buttons=station['buttons'],
-            card=station['card']
+            text='Добро пожаловать в навык "Литературный гений"!' + commands['station']['text'][8:],
+            tts='Добро пожаловать в навык "Литературный гений"!' + commands['station']['tts'][8:],
+            buttons=commands['station']['buttons'],
+            card=station
         )
         return res
 
@@ -247,15 +246,26 @@ def dialog_handler(event: dict, context: Any) -> dict:
             res = return_question(res, question)
             return res
         else:
+            err_msg = choice(MISUNDERSTANDING)
             res = save_response(
                 res=res,
-                text=choice(MISUNDERSTANDING) + ' ' + commands['restart']['text'],
-                tts=choice(MISUNDERSTANDING) + ' ' + commands['restart']['tts'],
+                text=err_msg + ' ' + commands['restart']['text'],
+                tts=err_msg + ' ' + commands['restart']['tts'],
                 buttons=commands['restart']['buttons']
             )
             return res
 
     if 'finish_game' in mode:
+        res['user_state_update'] = {
+            'name': res['user_state_update']['name'],
+            'mode': 'menu',
+            'books': [],
+            'questions': [],
+            'points': 0,
+            'hearts': 3,
+            'station': res['user_state_update']['station'],
+            'last_response': {}
+        }
         if 'YANDEX.CONFIRM' in list(event['request']['nlu']['intents'].keys()):
             if mode[-1] == 'q':
                 res['user_state_update']['mode'] = 'quiz'
@@ -299,15 +309,11 @@ def dialog_handler(event: dict, context: Any) -> dict:
                 )
                 return res
 
-    if mode == 'menu':
-        # если пользователь вызывает меню
-        return menu_handler(event, res)
-
     if mode == 'quiz' or mode == 'super_quiz':
         if not res['user_state_update']['questions']:
             if 'YANDEX.CONFIRM' in list(event['request']['nlu']['intents'].keys()):
                 res['user_state_update'] = {
-                    'mode': 'menu',
+                    'mode': mode,
                     'books': [],
                     'questions': [],
                     'points': 0,
@@ -332,11 +338,12 @@ def dialog_handler(event: dict, context: Any) -> dict:
             else:
                 card = commands[mode]['card'].copy()
                 card['description'] += ' Вы готовы начать?'
-                card['description'] = choice(MISUNDERSTANDING) + ' ' + card['description']
+                err_msg = choice(MISUNDERSTANDING)
+                card['description'] = err_msg + ' ' + card['description']
                 res = save_response(
                     res=res,
-                    text=choice(MISUNDERSTANDING) + ' ' + commands[mode]['text'] + ' Вы готовы начать?',
-                    tts=choice(MISUNDERSTANDING) + ' ' + commands[mode]['tts'] + ' Вы готовы начать?',
+                    text=err_msg + ' ' + commands[mode]['text'] + ' Вы готовы начать?',
+                    tts=err_msg + ' ' + commands[mode]['tts'] + ' Вы готовы начать?',
                     buttons=[
                         {
                             "title": "Да",
@@ -416,6 +423,9 @@ def dialog_handler(event: dict, context: Any) -> dict:
                         buttons=commands['finish_game']['buttons']
                     )
                     return res
+    if mode == 'menu':
+        # если пользователь вызывает меню
+        return menu_handler(event, res)
 
     raise Exception
 
@@ -443,14 +453,15 @@ def menu_handler(event: dict, res: dict) -> dict:
             )
             return res
         else:
-            station = commands['station'].copy()
-            station['card']['description'] = choice(MISUNDERSTANDING) + station['card']['description'][8:]
+            station = commands['station']['card'].copy()
+            err_msg = choice(MISUNDERSTANDING)
+            station['description'] = err_msg + station['description'][8:]
             res = save_response(
                 res=res,
-                text=choice(MISUNDERSTANDING) + station['text'][8:],
-                tts=choice(MISUNDERSTANDING) + station['tts'][8:],
-                buttons=station['buttons'],
-                card=station['card']
+                text=err_msg + commands['station']['text'][8:],
+                tts=err_msg + commands['station']['tts'][8:],
+                buttons=commands['station']['buttons'],
+                card=station
             )
             return res
     if event['request']['type'] == "ButtonPressed":
@@ -458,17 +469,26 @@ def menu_handler(event: dict, res: dict) -> dict:
     else:
         text = event['request']['nlu']['tokens']
         text.append(event['request']['original_utterance'].lower().strip().strip('.'))
-    if 'викторина' in text or 'викторину' in text:
-        mode = 'quiz'
-    elif 'супер-игра' in text or 'супер игра' in text or 'супер игру' in text or 'супер-игру' in text:
-        mode = 'super_quiz'
-    elif 'библиотека' in text or 'библиотеку' in text:
-        mode = 'library'
-    else:
+    flag = True
+    for ans in text:
+        if 'викторина' in ans or 'викторину' in ans:
+            mode = 'quiz'
+            flag = False
+            break
+        elif 'супер-игра' in text or 'супер игра' in text or 'супер игру' in text or 'супер-игру' in text:
+            mode = 'super_quiz'
+            flag = False
+            break
+        elif 'библиотека' in text or 'библиотеку' in text:
+            mode = 'library'
+            flag = False
+            break
+    if flag:
+        err_msg = choice(MISUNDERSTANDING)
         res = save_response(
             res=res,
-            text=choice(MISUNDERSTANDING) + ' ' + commands['menu']['text'],
-            tts=choice(MISUNDERSTANDING) + ' ' + commands['menu']['tts'],
+            text=err_msg + ' ' + commands['menu']['text'],
+            tts=err_msg + ' ' + commands['menu']['tts'],
             buttons=commands['menu']['buttons'],
             card=commands['menu']['card']
         )
