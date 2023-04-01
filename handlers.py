@@ -93,7 +93,7 @@ AUTHORS = {"Л.Н. Толстой": "Лев Никол+аевич Толст+о�
            "Внезапная картинка": "Внезапная картинка",
            "Цитата из": "Цитата из случайной книги"}
 
-BOOKS = books_descriptions.keys()
+BOOKS = list(books_descriptions.keys())
 
 
 def dialog_handler(event: dict, context: Any) -> dict:
@@ -615,6 +615,7 @@ def library_handler(event: dict, res: dict) -> dict:
 
     elif isinstance(res['user_state_update']['books'], str):
         if 'books_gallery' in list(event['request']['nlu']['intents'].keys()):
+            res['user_state_update']['books'] = []
             return return_books(res)
         elif 'main_info_book' in list(event['request']['nlu']['intents'].keys()):
             book_mode = 'main_description'
@@ -718,7 +719,7 @@ def return_books(res: dict) -> dict:
             "title": books_descriptions[book_name]['title'],
             "button": books_descriptions[book_name]['button']
         }
-        card['item'].append(book)
+        card['items'].append(book)
         buttons.append(
             {
                 "title": book['title'],
@@ -756,12 +757,12 @@ def return_books(res: dict) -> dict:
 
 def get_books(res: dict) -> dict:
     shuffle(BOOKS)
-    res['user_state_update']['books'] = BOOKS
+    res['user_state_update']['books'] = BOOKS.copy()
     return res
 
 
 def get_book_reference(res: dict, book: str) -> dict:
-    res['user_state_update']['book'] = book
+    res['user_state_update']['books'] = book
     card = {
         "type": "ImageGallery",
         "items": []
@@ -781,13 +782,17 @@ def get_book_reference(res: dict, book: str) -> dict:
             "hide": True
         }
     ]
-    for key in books_descriptions[book].keys()[3:]:
+    for key in list(books_descriptions[book].keys())[3:]:
+        if not books_descriptions[book][key]['image_id']:
+            image_id = choice(IMAGES_FOR_QUESTIONS)
+        else:
+            image_id = books_descriptions[book][key]['image_id']
         item = {
-            "image_id": books_descriptions[book][key]['image_id'],
+            "image_id": image_id,
             "title": books_descriptions[book][key]['title'],
             "button": books_descriptions[book][key]['button']
         }
-        card['item'].append(book)
+        card['items'].append(item)
         buttons.append(
             {
                 "title": item['title'],
@@ -833,7 +838,7 @@ def get_book_info(res: dict, book: str, mode: str) -> dict:
             "hide": True
         }
     ]
-    for key in books_descriptions[book].keys()[3:]:
+    for key in list(books_descriptions[book].keys())[3:]:
         if key != mode:
             buttons.append(
                 {
