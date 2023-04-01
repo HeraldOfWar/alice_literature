@@ -364,11 +364,11 @@ def menu_handler(event: dict, res: dict) -> dict:
     else:
         text = event['request']['nlu']['tokens']
         text.append(event['request']['original_utterance'].lower().strip().strip('.'))
-    if 'викторина' in text:
+    if 'викторина' in text or 'викторину' in text:
         mode = 'quiz'
-    elif 'супер-игра' in text or 'супер игра' in text:
+    elif 'супер-игра' in text or 'супер игра' in text or 'супер игру' in text or 'супер-игру' in text:
         mode = 'super_quiz'
-    elif 'библиотека' in text:
+    elif 'библиотека' in text or 'библиотеку' in text:
         # mode = 'library'
         text = 'В разработке... Скажите \"Меню\", чтобы вернуться обратно.'
         res = save_response(
