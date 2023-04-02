@@ -65,11 +65,16 @@ MISLIBR = [
     "Не забывайте, чтобы выйти в меню, достаточно сказать \"Меню\"."
 ]
 MISLIBR_INTO = [
-    "Извините, но такого пункта в меню нет. Пожалуйста, выберите один из доступных вариантов: Основная информация, Персонажи из книги, Интересные факты."
-    "К сожалению, выбранный вами пункт не найден. Пожалуйста, выберите один из доступных вариантов: Основная информация, Персонажи из книги, Интересные факты."
-    "Извините, но такой пункт не существует. Пожалуйста, выберите один из доступных вариантов: Основная информация, Персонажи из книги, Интересные факты."
-    "Ваш выбор не распознан. Пожалуйста, выберите один из доступных вариантов: Основная информация, Персонажи из книги, Интересные факты."
-    "К сожалению, указанный вами пункт не найден в меню. Пожалуйста, выберите один из доступных вариантов: Основная информация, Персонажи из книги, Интересные факты."
+    "Извините, но такого пункта в меню нет. Пожалуйста, выберите один из доступных вариантов: "
+    " информация, Персонажи из книги, Интересные факты.",
+    "К сожалению, выбранный вами пункт не найден. Пожалуйста, выберите один из доступных вариантов: "
+    "Основная информация, Персонажи из книги, Интересные факты.",
+    "Извините, но такой пункт не существует. Пожалуйста, выберите один из доступных вариантов: "
+    "Основная информация, Персонажи из книги, Интересные факты.",
+    "Ваш выбор не распознан. Пожалуйста, выберите один из доступных вариантов: Основная информация, "
+    "Персонажи из книги, Интересные факты.",
+    "К сожалению, указанный вами пункт не найден в меню. Пожалуйста, выберите один из доступных вариантов: "
+    "Основная информация, Персонажи из книги, Интересные факты."
 ]
 IMAGES_FOR_QUESTIONS = ["1652229/3513b2e092b536a1db35", "997614/66778b95cc6e1a7b76f2",
                         "937455/75c64f8e40145a270655", "1533899/cdadf2f29b7b85d2d438",
@@ -148,7 +153,7 @@ def dialog_handler(event: dict, context: Any) -> dict:
     if not event['state']['user']:
         # собираем стейты для нового пользователя и возвращаем приветственное сообщение
         res['user_state_update'] = {
-            'mode': 'station',
+            'mode': 'start',
             'books': [],
             'questions': [],
             'points': 0,
@@ -251,7 +256,17 @@ def dialog_handler(event: dict, context: Any) -> dict:
             res['response'][key] = item
         return res
 
-    if mode == 'station':
+    if mode == 'station' or mode == 'start':
+        if mode == 'start':
+            res['user_state_update']['mode'] = 'station'
+            res = save_response(
+                res=res,
+                text=commands['station']['text'],
+                tts=commands['station']['tts'],
+                buttons=commands['station']['buttons'],
+                card=commands['station']['card']
+            )
+            return res
         if res['user_state_update']['help']:
             res['user_state_update']['help'] = False
             res = save_response(
@@ -547,12 +562,25 @@ def quiz_handler(event: dict, res: dict) -> dict:
     if not res['user_state_update']['questions']:
         if res['user_state_update']['help']:
             res['user_state_update']['help'] = False
+            card = commands[mode]['card'].copy()
+            card['description'] += ' Вы готовы начать?'
             res = save_response(
                 res=res,
-                text=commands[mode]['text'],
-                tts=commands[mode]['tts'],
-                buttons=commands[mode]['buttons'],
-                card=commands[mode]['card']
+                text=commands[mode]['text'] + ' Вы готовы начать?',
+                tts=commands[mode]['tts'] + ' Вы готовы начать?',
+                buttons=[
+                    {
+                        "title": "Да",
+                        "payload": {},
+                        "hide": True
+                    },
+                    {
+                        "title": "Нет",
+                        "payload": {},
+                        "hide": True
+                    }
+                ],
+                card=card
             )
             return res
         res['user_state_update']['help'] = False
@@ -698,12 +726,25 @@ def library_handler(event: dict, res: dict) -> dict:
     if not res['user_state_update']['books']:
         if res['user_state_update']['help']:
             res['user_state_update']['help'] = False
+            card = commands[mode]['card'].copy()
+            card['description'] += ' Вы готовы начать?'
             res = save_response(
                 res=res,
-                text=commands[mode]['text'],
-                tts=commands[mode]['tts'],
-                buttons=commands[mode]['buttons'],
-                card=commands[mode]['card']
+                text=commands[mode]['text'] + ' Вы готовы начать?',
+                tts=commands[mode]['tts'] + ' Вы готовы начать?',
+                buttons=[
+                    {
+                        "title": "Да",
+                        "payload": {},
+                        "hide": True
+                    },
+                    {
+                        "title": "Нет",
+                        "payload": {},
+                        "hide": True
+                    }
+                ],
+                card=card
             )
             return res
         res['user_state_update']['help'] = False
@@ -871,10 +912,6 @@ def return_books(res: dict) -> dict:
         "type": "ImageGallery",
         "items": []
     }
-    text = f'Скажите название интересующей Вас книги или выберите одну из пяти предложенных: ' \
-           f'{" sil <[250]> ".join(res["user_state_update"]["books"])}. Чтобы посмотреть другие книги, скажите ' \
-           f'"Дальше". Если хотите, чтобы я повторил, скажите "Повтори". А для того чтобы чтобы ' \
-           f'выйти в главное меню, скажите "Меню".'
     buttons = [
         {
             "title": 'Дальше',
@@ -905,6 +942,10 @@ def return_books(res: dict) -> dict:
                 "hide": True
             }
         )
+    text = f'Скажите название интересующей Вас книги или выберите одну из пяти предложенных: ' \
+           f'{" sil <[250]> ".join([book["title"] for book in card["items"]])}. ' \
+           f'Чтобы посмотреть другие книги, скажите "Дальше". Если хотите, чтобы я повторил, скажите "Повтори". ' \
+           f'А для того чтобы чтобы выйти в главное меню, скажите "Меню".'
     res = save_response(
         res=res,
         text=text,
