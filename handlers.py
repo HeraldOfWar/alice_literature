@@ -69,7 +69,7 @@ IMAGES_FOR_QUESTIONS = ["1652229/3513b2e092b536a1db35", "997614/66778b95cc6e1a7b
                         "997614/40952917bdd4d9049aaa", "1652229/05d59c2e8b762967069f",
                         "1540737/297189116bd10b6250f9", "1652229/a343bbc8d1cc61d4e3af",
                         "1533899/ce772f731eef74e04a94"]
-IMAGE_GIVE_A_LIVE = [
+IMAGES_GIVE_A_LIVE = [
     '1521359/ae1d5b4c27beec31b7a8',
     '213044/ec19844ed2a539c87757'
 ]
@@ -606,6 +606,7 @@ def quiz_handler(event: dict, res: dict) -> dict:
         res['user_state_update']['help'] = False
         question = res['user_state_update']['questions'][-1]
         flag = True
+        chance = 0
         if event['request']['type'] == "ButtonPressed":
             if event['request']['payload']['title'] in question['answers']:
                 flag = False
@@ -638,22 +639,23 @@ def quiz_handler(event: dict, res: dict) -> dict:
                     return res
             elif mode == 'quiz':
                 answer = choice(WRONGANS) + ' '
+            else:
+                answer = ''
         else:
             res['user_state_update']['points'] += 1
             answer = choice(TRUEANS) + ' '
-        question, res['user_state_update']['questions'] = None, res['user_state_update']['questions'][:-1]
-        if res['user_state_update']['questions']:
-            chance = 0
             if mode == 'super_quiz' and res['user_state_update']['hearts'] < 3:
                 chance = randint(1, 10)
                 if chance == 1:
-                    answer += choice(GIVE_A_LIFE)
+                    answer += choice(GIVE_A_LIFE) + ' '
+        question, res['user_state_update']['questions'] = None, res['user_state_update']['questions'][:-1]
+        if res['user_state_update']['questions']:
             question = res['user_state_update']['questions'][-1]
             res = return_question(res, question)
             res['response']['tts'] = answer + res['response']['tts']
             res['response']['card']['description'] = answer + res['response']['card']['description']
             if chance == 1:
-                res['response']['card']['image_id'] = choice(IMAGE_GIVE_A_LIVE)
+                res['response']['card']['image_id'] = choice(IMAGES_GIVE_A_LIVE)
             res['user_state_update']['last_response']['tts'] = res['response']['tts']
             res['user_state_update']['last_response']['card'] = res['response']['card']
             return res
@@ -935,7 +937,7 @@ def get_book_reference(res: dict, book: str) -> dict:
         "type": "ImageGallery",
         "items": []
     }
-    text = f'Вы выбрали произведение {book} Скажите, что хотите узнать о данном произведении. Я могу' \
+    text = f'Вы выбрали произведение {book}. Скажите, что хотите узнать о данном произведении. Я могу' \
            f' рассказать основную информацию о книге, о персонажах, интересные факты или полезные ссылки. Для ' \
            f'выбора произнесите название одного из режимов: "Основная информация", sil <[250]>  "Персонажи", ' \
            f'sil <[250]> "Факты" или sil <[150]> "Ссылки". Также Вы можете вернуться обратно на витрину ' \
