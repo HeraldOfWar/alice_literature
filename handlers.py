@@ -541,12 +541,25 @@ def quiz_handler(event: dict, res: dict) -> dict:
     if not res['user_state_update']['questions']:
         if res['user_state_update']['help']:
             res['user_state_update']['help'] = False
+            card = commands[mode]['card'].copy()
+            card['description'] += ' Вы готовы начать?'
             res = save_response(
                 res=res,
-                text=commands[mode]['text'],
-                tts=commands[mode]['tts'],
-                buttons=commands[mode]['buttons'],
-                card=commands[mode]['card']
+                text=commands[mode]['text'] + ' Вы готовы начать?',
+                tts=commands[mode]['tts'] + ' Вы готовы начать?',
+                buttons=[
+                    {
+                        "title": "Да",
+                        "payload": {},
+                        "hide": True
+                    },
+                    {
+                        "title": "Нет",
+                        "payload": {},
+                        "hide": True
+                    }
+                ],
+                card=card
             )
             return res
         res['user_state_update']['help'] = False
@@ -651,6 +664,7 @@ def quiz_handler(event: dict, res: dict) -> dict:
             if mode == 'super_quiz' and res['user_state_update']['hearts'] < 3:
                 chance = randint(1, 10)
                 if chance == 1:
+                    res['user_state_update']['hearts'] += 1
                     answer += choice(GIVE_A_LIFE) + ' '
         question, res['user_state_update']['questions'] = None, res['user_state_update']['questions'][:-1]
         if res['user_state_update']['questions']:
@@ -692,14 +706,26 @@ def library_handler(event: dict, res: dict) -> dict:
     if not res['user_state_update']['books']:
         if res['user_state_update']['help']:
             res['user_state_update']['help'] = False
+            card = commands[mode]['card'].copy()
+            card['description'] += ' Вы готовы начать?'
             res = save_response(
                 res=res,
-                text=commands[mode]['text'],
-                tts=commands[mode]['tts'],
-                buttons=commands[mode]['buttons'],
-                card=commands[mode]['card']
+                text=commands[mode]['text'] + ' Вы готовы начать?',
+                tts=commands[mode]['tts'] + ' Вы готовы начать?',
+                buttons=[
+                    {
+                        "title": "Да",
+                        "payload": {},
+                        "hide": True
+                    },
+                    {
+                        "title": "Нет",
+                        "payload": {},
+                        "hide": True
+                    }
+                ],
+                card=card
             )
-            return res
         res['user_state_update']['help'] = False
         if 'YANDEX.CONFIRM' in list(event['request']['nlu']['intents'].keys()):
             res['user_state_update'] = {
@@ -762,7 +788,7 @@ def library_handler(event: dict, res: dict) -> dict:
             return return_books(res)
         book = ''
         if event['request']['type'] == "ButtonPressed":
-            book = event['request']['payload']['title']
+            book = event['request']['payload']['title'].lower()
         else:
             for word in event['request']['nlu']['tokens']:
                 for b in BOOKS:
