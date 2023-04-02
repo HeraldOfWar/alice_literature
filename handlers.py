@@ -60,10 +60,16 @@ TRUEANS = [
 MISLIBR = [
     "Упс, не смог найти Вашу книгу, но не переживайте: скоро она появится в моём каталоге! "
     "Попробуйте назвать другую книгу, и Я постараюсь её найти. "
-    "Если же не хотите смотреть книги, скажите \"Меню\".",
+    "Если вы не хотите смотреть книги, скажите \"Меню\".",
     "Ой! Вашей книги нет в каталоге, но скоро Я её туда добавлю. Назовите другую книгу, и Я поищу её! "
     "Не забывайте, чтобы выйти в меню, достаточно сказать \"Меню\"."
 ]
+MISLIBR_INTO = [
+    "Извините, но такого пункта в меню нет. Пожалуйста, выберите один из доступных вариантов: Основная информация, Персонажи из книги, Интересные факты."
+    "К сожалению, выбранный вами пункт не найден. Пожалуйста, выберите один из доступных вариантов: Основная информация, Персонажи из книги, Интересные факты."
+    "Извините, но такой пункт не существует. Пожалуйста, выберите один из доступных вариантов: Основная информация, Персонажи из книги, Интересные факты."
+    "Ваш выбор не распознан. Пожалуйста, выберите один из доступных вариантов: Основная информация, Персонажи из книги, Интересные факты."
+    "К сожалению, указанный вами пункт не найден в меню. Пожалуйста, выберите один из доступных вариантов: Основная информация, Персонажи из книги, Интересные факты."
 
 IMAGES_FOR_QUESTIONS = ["1652229/3513b2e092b536a1db35", "997614/66778b95cc6e1a7b76f2",
                         "937455/75c64f8e40145a270655", "1533899/cdadf2f29b7b85d2d438",
@@ -541,25 +547,12 @@ def quiz_handler(event: dict, res: dict) -> dict:
     if not res['user_state_update']['questions']:
         if res['user_state_update']['help']:
             res['user_state_update']['help'] = False
-            card = commands[mode]['card'].copy()
-            card['description'] += ' Вы готовы начать?'
             res = save_response(
                 res=res,
-                text=commands[mode]['text'] + ' Вы готовы начать?',
-                tts=commands[mode]['tts'] + ' Вы готовы начать?',
-                buttons=[
-                    {
-                        "title": "Да",
-                        "payload": {},
-                        "hide": True
-                    },
-                    {
-                        "title": "Нет",
-                        "payload": {},
-                        "hide": True
-                    }
-                ],
-                card=card
+                text=commands[mode]['text'],
+                tts=commands[mode]['tts'],
+                buttons=commands[mode]['buttons'],
+                card=commands[mode]['card']
             )
             return res
         res['user_state_update']['help'] = False
@@ -664,7 +657,6 @@ def quiz_handler(event: dict, res: dict) -> dict:
             if mode == 'super_quiz' and res['user_state_update']['hearts'] < 3:
                 chance = randint(1, 10)
                 if chance == 1:
-                    res['user_state_update']['hearts'] += 1
                     answer += choice(GIVE_A_LIFE) + ' '
         question, res['user_state_update']['questions'] = None, res['user_state_update']['questions'][:-1]
         if res['user_state_update']['questions']:
@@ -706,26 +698,14 @@ def library_handler(event: dict, res: dict) -> dict:
     if not res['user_state_update']['books']:
         if res['user_state_update']['help']:
             res['user_state_update']['help'] = False
-            card = commands[mode]['card'].copy()
-            card['description'] += ' Вы готовы начать?'
             res = save_response(
                 res=res,
-                text=commands[mode]['text'] + ' Вы готовы начать?',
-                tts=commands[mode]['tts'] + ' Вы готовы начать?',
-                buttons=[
-                    {
-                        "title": "Да",
-                        "payload": {},
-                        "hide": True
-                    },
-                    {
-                        "title": "Нет",
-                        "payload": {},
-                        "hide": True
-                    }
-                ],
-                card=card
+                text=commands[mode]['text'],
+                tts=commands[mode]['tts'],
+                buttons=commands[mode]['buttons'],
+                card=commands[mode]['card']
             )
+            return res
         res['user_state_update']['help'] = False
         if 'YANDEX.CONFIRM' in list(event['request']['nlu']['intents'].keys()):
             res['user_state_update'] = {
@@ -788,7 +768,7 @@ def library_handler(event: dict, res: dict) -> dict:
             return return_books(res)
         book = ''
         if event['request']['type'] == "ButtonPressed":
-            book = event['request']['payload']['title'].lower()
+            book = event['request']['payload']['title']
         else:
             for word in event['request']['nlu']['tokens']:
                 for b in BOOKS:
