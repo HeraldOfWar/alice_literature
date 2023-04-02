@@ -238,7 +238,7 @@ def dialog_handler(event: dict, context: Any) -> dict:
         card['description'] = text
         res = save_response(
             res=res,
-            text=text,
+            text=text.replace('-', ' '),
             tts=text,
             buttons=commands['description']['buttons'],
             card=card
