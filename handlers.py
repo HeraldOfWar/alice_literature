@@ -70,7 +70,7 @@ MISLIBR_INTO = [
     "Извините, но такой пункт не существует. Пожалуйста, выберите один из доступных вариантов: Основная информация, Персонажи из книги, Интересные факты."
     "Ваш выбор не распознан. Пожалуйста, выберите один из доступных вариантов: Основная информация, Персонажи из книги, Интересные факты."
     "К сожалению, указанный вами пункт не найден в меню. Пожалуйста, выберите один из доступных вариантов: Основная информация, Персонажи из книги, Интересные факты."
-
+]
 IMAGES_FOR_QUESTIONS = ["1652229/3513b2e092b536a1db35", "997614/66778b95cc6e1a7b76f2",
                         "937455/75c64f8e40145a270655", "1533899/cdadf2f29b7b85d2d438",
                         "1652229/3513b2e092b536a1db35", "937455/71b1d565fa686b3b7978",
@@ -238,8 +238,8 @@ def dialog_handler(event: dict, context: Any) -> dict:
         card['description'] = text
         res = save_response(
             res=res,
-            text=text.replace('-', ' '),
-            tts=text,
+            text=text,
+            tts=text.replace('-', ' '),
             buttons=commands['description']['buttons'],
             card=card
         )
@@ -806,11 +806,9 @@ def library_handler(event: dict, res: dict) -> dict:
         elif 'links_books' in list(event['request']['nlu']['intents'].keys()):
             book_mode = 'useful_links'
         else:
-            err_msg = choice(MISUNDERSTANDING)
-            res['response']['text'] = err_msg + ' Пожалуйста, выберите один из трёх режимов. ' + \
-                                      res['user_state_update']['last_response']['text']
-            res['response']['tts'] = err_msg + ' Пожалуйста, выберите один из трёх режимов. ' + \
-                                     res['user_state_update']['last_response']['tts']
+            err_msg = choice(MISLIBR_INTO)
+            res['response']['text'] = err_msg + '  ' + res['user_state_update']['last_response']['text']
+            res['response']['tts'] = err_msg + '  ' + res['user_state_update']['last_response']['tts']
             res['response']['buttons'] = res['user_state_update']['last_response']['buttons']
             res['response']['card'] = res['user_state_update']['last_response']['card']
             return res
