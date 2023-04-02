@@ -360,7 +360,6 @@ def dialog_handler(event: dict, context: Any) -> dict:
             return res
         if 'YANDEX.CONFIRM' in list(event['request']['nlu']['intents'].keys()):
             res['user_state_update'] = {
-                'name': res['user_state_update']['name'],
                 'mode': 'menu',
                 'books': [],
                 'questions': [],
@@ -398,7 +397,6 @@ def dialog_handler(event: dict, context: Any) -> dict:
 
     if 'finish_game' in mode:
         res['user_state_update'] = {
-            'name': res['user_state_update']['name'],
             'mode': 'menu',
             'books': [],
             'questions': [],
