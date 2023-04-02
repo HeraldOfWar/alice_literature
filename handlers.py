@@ -838,7 +838,7 @@ def library_handler(event: dict, res: dict) -> dict:
         if 'books_gallery' in list(event['request']['nlu']['intents'].keys()):
             res['user_state_update']['books'] = []
             return return_books(res)
-        elif 'main_info_book' in list(event['request']['nlu']['intents'].keys()):
+        if 'main_info_book' in list(event['request']['nlu']['intents'].keys()):
             book_mode = 'main_description'
         elif 'char_info_book' in list(event['request']['nlu']['intents'].keys()):
             book_mode = 'char_description'
