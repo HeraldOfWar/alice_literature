@@ -589,6 +589,12 @@ def library_handler(event: dict, res: dict) -> dict:
             )
             return res
 
+    elif 'Чтобы вернуться к книгам, скажите "Вернуться".' in res['user_state_update']['last_response']['text']:
+        if isinstance(res['user_state_update']['books'], list):
+            return return_books(res)
+        elif isinstance(res['user_state_update']['books'], str):
+            return get_book_reference(res, res['user_state_update']['books'])
+
     elif isinstance(res['user_state_update']['books'], list):
         if 'next_books' in list(event['request']['nlu']['intents'].keys()):
             return return_books(res)
@@ -600,6 +606,13 @@ def library_handler(event: dict, res: dict) -> dict:
                 for b in BOOKS:
                     if word in b.split():
                         book = b
+                        break
+                    w = word.replace('ё', 'e')
+                    if w in b.split():
+                        book = b
+                        break
+                if book:
+                    break
         if book:
             res = get_book_reference(res, book)
             return res
@@ -767,12 +780,12 @@ def get_book_reference(res: dict, book: str) -> dict:
         "type": "ImageGallery",
         "items": []
     }
-    text = f'Выберите, что хотите узнать о данном произведении. Я могу рассказать основную информацию ' \
-           f'о книге, о персонажах, интересные факты или полезные ссылки. Для выбора произнесите ' \
-           f'название одного из режимов: "Основная информация", sil <[250]>  "Персонажи", sil <[250]> "Факты" ' \
-           f'или sil <[150]> "Ссылки". Также Вы можете вернуться обратно на витрину и выбрать другую книгу. ' \
-           f'Для этого скажите "К витрине". Если хотите, чтобы я повторил, скажите "Повтори". ' \
-           f'А для того чтобы выйти в главное меню, скажите "Меню".'
+    text = f'Вы выбрали произведение {book} Скажите, что хотите узнать о данном произведении. Я могу' \
+           f' рассказать основную информацию о книге, о персонажах, интересные факты или полезные ссылки. Для ' \
+           f'выбора произнесите название одного из режимов: "Основная информация", sil <[250]>  "Персонажи", ' \
+           f'sil <[250]> "Факты" или sil <[150]> "Ссылки". Также Вы можете вернуться обратно на витрину ' \
+           f'и выбрать другую книгу. Для этого скажите "К витрине". Если хотите, чтобы я повторил, скажите "Повтори".' \
+           f' А для того чтобы выйти в главное меню, скажите "Меню".'
     buttons = [
         {
             "title": 'К витрине',
