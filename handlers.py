@@ -12,12 +12,6 @@ with open(path.join('data', 'books.json'), encoding='utf-8') as file:
 with open(path.join('data', 'commands.json'), encoding='utf-8') as file:
     commands = load(file)
 
-SUPERGAME = {
-    2: ['Теперь у Вас две жизни.', 'Не переживайте, у Вас ещё целых две жизни.', 'С этого момента у Вас две жизни.'],
-    1: ['С этого момента у Вас нет права на ошибку!', 'Последняя жизнь! Ошибаться больше нельзя!',
-        'Права на ошибку больше нет!'],
-    0: ['Поражение...', 'Всё кончено!', 'Игра окончена...', 'Это конец!']
-}
 MISUNDERSTANDING = [
     "Прошу прощения, ответьте конкретнее.",
     "Я Вас совсем не понимаю. Пожалуйста, ответьте точнее.",
@@ -26,9 +20,12 @@ MISUNDERSTANDING = [
     "Даже не знаю, что сказать... Попробуйте ответить ещё раз.",
     "Если вам что-то непонятно, то скажите \"Меню\" или \"Помощь\".",
     "Не понял вас. Попробуйте сказать разборчивее.",
-    "К сожалению, я не смог понять ваш ответ так же, как героиня романа \"Алиса в Стране Чудес\" не могла понять бред Шляпника. Скажите \"Меню\", чтобы вернуться в меню, или \"Повтори\" для повтора вопроса",
-    "Как и Шерлок Холмс, я не могу понять ваш ответ, потому что мне не хватает информации. Скажите \"Помощь\" и я попытаюсь Вам помочь.",
-    "Как в \"Гарри Поттере\" Роулинг, я не смог понять Ваш вопрос, потому что он находится под сильным заклинанием. Скажите \"Помощь\", и Я постараюсь вам помочь!"
+    "К сожалению, я не смог понять ваш ответ так же, как героиня романа \"Алиса в Стране Чудес\" не могла "
+    "понять бред Шляпника. Скажите \"Меню\", чтобы вернуться в меню, или \"Повтори\" для повтора вопроса",
+    "Как и Шерлок Холмс, я не могу понять ваш ответ, потому что мне не хватает информации. "
+    "Скажите \"Помощь\" и я попытаюсь Вам помочь.",
+    "Как в \"Гарри Поттере\" Роулинг, я не смог понять Ваш вопрос, потому что он находится под сильным "
+    "заклинанием. Скажите \"Помощь\", и Я постараюсь вам помочь!"
 ]
 WRONGANS = [
     "Упс! Вы ответили неверно...", "Жаль, но ваш ответ не был верным.",
@@ -94,6 +91,28 @@ AUTHORS = {"Л.Н. Толстой": "Лев Никол+аевич Толст+о�
            "Цитата из": "Цитата из случайной книги"}
 
 BOOKS = list(books_descriptions.keys())
+
+RESULTS = {
+    5: '',
+    4: '',
+    3: '',
+    2: '',
+    1: ''
+}
+
+GIVE_A_LIFE = [
+    '',
+    '',
+    '',
+    '',
+    ''
+]
+LOOSE_A_LIFE = {
+    2: ['Теперь у Вас две жизни.', 'Не переживайте, у Вас ещё целых две жизни.', 'С этого момента у Вас две жизни.'],
+    1: ['С этого момента у Вас нет права на ошибку!', 'Последняя жизнь! Ошибаться больше нельзя!',
+        'Права на ошибку больше нет!'],
+    0: ['Поражение...', 'Всё кончено!', 'Игра окончена...', 'Это конец!']
+}
 
 
 def dialog_handler(event: dict, context: Any) -> dict:
@@ -387,15 +406,16 @@ def menu_handler(event: dict, res: dict) -> dict:
         text.append(event['request']['original_utterance'].lower().strip().strip('.'))
     flag = True
     for ans in text:
-        if 'викторина' in ans or 'викторину' in ans:
+        if 'викторина' in ans.strip().strip('.') or 'викторину' in ans.strip().strip('.'):
             mode = 'quiz'
             flag = False
             break
-        elif 'супер-игра' in text or 'супер игра' in text or 'супер игру' in text or 'супер-игру' in text:
+        elif 'супер-игра' in ans.strip().strip('.') or 'супер игра' in ans.strip().strip('.') or \
+                'супер игру' in ans.strip().strip('.') or 'супер-игру' in ans.strip().strip('.'):
             mode = 'super_quiz'
             flag = False
             break
-        elif 'библиотека' in text or 'библиотеку' in text:
+        elif 'библиотека' in ans.strip().strip('.') or 'библиотеку' in ans.strip().strip('.'):
             mode = 'library'
             flag = False
             break
@@ -434,6 +454,7 @@ def quiz_handler(event: dict, res: dict) -> dict:
     mode = res['user_state_update']['mode']
 
     if not res['user_state_update']['questions']:
+        res['user_state_update']['help'] = False
         if 'YANDEX.CONFIRM' in list(event['request']['nlu']['intents'].keys()):
             res['user_state_update'] = {
                 'mode': mode,
@@ -442,7 +463,8 @@ def quiz_handler(event: dict, res: dict) -> dict:
                 'points': 0,
                 'hearts': 3,
                 'station': res['user_state_update']['station'],
-                'last_response': {}
+                'last_response': {},
+                'help': False
             }
             res = get_questions(res)
             question = res['user_state_update']['questions'][-1]
@@ -482,12 +504,15 @@ def quiz_handler(event: dict, res: dict) -> dict:
                 card=card
             )
             return res
-    elif 'Чтобы повторить вопрос, скажите "Повтори".' in \
-            res['user_state_update']['last_response']['card']['description']:
+
+    elif res['user_state_update']['help']:
+        res['user_state_update']['help'] = False
         question = res['user_state_update']['questions'][-1]
         res = return_question(res, question)
         return res
+
     else:
+        res['user_state_update']['help'] = False
         question = res['user_state_update']['questions'][-1]
         flag = True
         if event['request']['type'] == "ButtonPressed":
@@ -551,8 +576,10 @@ def quiz_handler(event: dict, res: dict) -> dict:
 
 def library_handler(event: dict, res: dict) -> dict:
     mode = res['user_state_update']['mode']
+    print(event)
 
     if not res['user_state_update']['books']:
+        res['user_state_update']['help'] = False
         if 'YANDEX.CONFIRM' in list(event['request']['nlu']['intents'].keys()):
             res['user_state_update'] = {
                 'mode': mode,
@@ -561,7 +588,8 @@ def library_handler(event: dict, res: dict) -> dict:
                 'points': 0,
                 'hearts': 3,
                 'station': res['user_state_update']['station'],
-                'last_response': {}
+                'last_response': {},
+                'help': False
             }
             res = return_books(res)
             return res
@@ -600,13 +628,15 @@ def library_handler(event: dict, res: dict) -> dict:
             )
             return res
 
-    elif 'Чтобы вернуться к книгам, скажите "Вернуться".' in res['user_state_update']['last_response']['text']:
+    elif res['user_state_update']['help']:
+        res['user_state_update']['help'] = False
         if isinstance(res['user_state_update']['books'], list):
             return return_books(res)
         elif isinstance(res['user_state_update']['books'], str):
             return get_book_reference(res, res['user_state_update']['books'])
 
     elif isinstance(res['user_state_update']['books'], list):
+        res['user_state_update']['help'] = False
         if 'next_books' in list(event['request']['nlu']['intents'].keys()):
             return return_books(res)
         book = ''
@@ -638,6 +668,7 @@ def library_handler(event: dict, res: dict) -> dict:
             return res
 
     elif isinstance(res['user_state_update']['books'], str):
+        res['user_state_update']['help'] = False
         if 'books_gallery' in list(event['request']['nlu']['intents'].keys()):
             res['user_state_update']['books'] = []
             return return_books(res)
@@ -659,8 +690,6 @@ def library_handler(event: dict, res: dict) -> dict:
             res['response']['card'] = res['user_state_update']['last_response']['card']
             return res
         return get_book_info(res, res['user_state_update']['books'], book_mode)
-
-    return res
 
 
 def return_question(res: dict, question_original: dict) -> dict:
