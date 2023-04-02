@@ -66,6 +66,10 @@ IMAGES_FOR_QUESTIONS = ["1652229/3513b2e092b536a1db35", "997614/66778b95cc6e1a7b
                         "997614/40952917bdd4d9049aaa", "1652229/05d59c2e8b762967069f",
                         "1540737/297189116bd10b6250f9", "1652229/a343bbc8d1cc61d4e3af",
                         "1533899/ce772f731eef74e04a94"]
+IMAGE_GIVE_A_LIVE = [
+    '1521359/ae1d5b4c27beec31b7a8',
+    '213044/ec19844ed2a539c87757'
+]
 
 AUTHORS = {"Л.Н. Толстой": "Лев Никол+аевич Толст+ой",
            "А.С. Пушкин": "Александр Сергеевич П+ушкин",
@@ -636,6 +640,7 @@ def quiz_handler(event: dict, res: dict) -> dict:
             answer = choice(TRUEANS) + ' '
         question, res['user_state_update']['questions'] = None, res['user_state_update']['questions'][:-1]
         if res['user_state_update']['questions']:
+            chance = 0
             if mode == 'super_quiz' and res['user_state_update']['hearts'] < 3:
                 chance = randint(1, 10)
                 if chance == 1:
@@ -644,6 +649,8 @@ def quiz_handler(event: dict, res: dict) -> dict:
             res = return_question(res, question)
             res['response']['tts'] = answer + res['response']['tts']
             res['response']['card']['description'] = answer + res['response']['card']['description']
+            if chance == 1:
+                res['response']['card']['image_id'] = choice(IMAGE_GIVE_A_LIVE)
             res['user_state_update']['last_response']['tts'] = res['response']['tts']
             res['user_state_update']['last_response']['card'] = res['response']['card']
             return res
