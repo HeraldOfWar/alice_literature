@@ -1,7 +1,7 @@
 from os import path
 from json import load
 from typing import Any
-from random import choice, shuffle
+from random import choice, shuffle, randint
 
 with open(path.join('data', 'questions.json'), encoding='utf-8') as file:
     questions = load(file)['questions']
@@ -93,19 +93,26 @@ AUTHORS = {"Л.Н. Толстой": "Лев Никол+аевич Толст+о�
 BOOKS = list(books_descriptions.keys())
 
 RESULTS = {
-    5: '',
-    4: '',
-    3: '',
-    2: '',
-    1: ''
+    5: 'Потрясающий результат, идеально! Вы настоящий знаток в классической литературе, и вашим знаниям можно '
+       'только позавидовать. Надеемся, эта викторина не была для Вас слишком простой!',
+    4: 'Поздравляю, отличный результат! Ещё немного, и можно было бы с уверенностью сказать, что в литературе нет '
+       'ничего, что Вы могли бы не знать. Продолжайте в том же духе!',
+    3: 'Очень неплохой результат! Вам ещё есть куда стремиться, однако уже можно сказать, что Вы владеете '
+       'хорошими знаниями в области классической литературы. Не останавливайтесь на достигнутом!',
+    2: 'Средненький результат. Похоже, Вы не особо увлекаетесь классической литературой, но всё же обладаете '
+       'необходимой базой. Чтобы улучшить её, советуем посетить нашу библиотеку и выбрать интересную для Вас книгу.',
+    1: 'Не самый лучший результат. Возможно, Вам просто не повезло с вопросами, однако явно стоит задуматься о '
+       'том, чтобы ознакомиться с парочкой произведений. К слову, с этим Вам может помочь наша библиотека!',
+    0: 'Откровенно плохой результат. Судя по всему, классическая литература обошла Вас стороной, однако никогда '
+       'не поздно что-то начать. Советуем посетить нашу библиотеку и ознакомиться с предложенными книгами!'
 }
 
 GIVE_A_LIFE = [
-    '',
-    '',
-    '',
-    '',
-    ''
+    'Какая удача! Только что у вас стало на одну жизнь больше!',
+    'Вжух! Теперь у вас на одну жизнь больше!',
+    'Вот это да! Теперь у вас появилась ещё одна жизнь!',
+    'Внимание! Только что Вы получили дополнительную жизнь!',
+    'Поздравляю! Вам удалось вернуть себе одну жизнь!'
 ]
 LOOSE_A_LIFE = {
     2: ['Теперь у Вас две жизни.', 'Не переживайте, у Вас ещё целых две жизни.', 'С этого момента у Вас две жизни.'],
@@ -371,8 +378,8 @@ def dialog_handler(event: dict, context: Any) -> dict:
                 )
                 return res
             else:
-                answer = choice(MISUNDERSTANDING) + ' ' + choice(SUPERGAME[res['user_state_update']['hearts']]) + '\n'
-                answer += f' Ваш результат: {res["user_state_update"]["points"]}. ' + commands['finish_game'][
+                answer = choice(MISUNDERSTANDING) + ' ' + choice(LOOSE_A_LIFE[res['user_state_update']['hearts']]) + ' '
+                answer += f'Ваш результат: {res["user_state_update"]["points"]}. ' + commands['finish_game'][
                     'text']
                 res = save_response(
                     res=res,
@@ -528,26 +535,34 @@ def quiz_handler(event: dict, res: dict) -> dict:
         if flag:
             if mode == 'super_quiz':
                 res['user_state_update']['hearts'] -= 1
-                answer = choice(WRONGANS) + ' ' + choice(SUPERGAME[res['user_state_update']['hearts']]) + '\n'
+                answer = choice(WRONGANS) + ' ' + choice(LOOSE_A_LIFE[res['user_state_update']['hearts']]) + ' '
                 if res['user_state_update']['hearts'] == 0:
-                    answer = choice(SUPERGAME[res['user_state_update']['hearts']]) + '\n'
+                    answer = choice(LOOSE_A_LIFE[res['user_state_update']['hearts']])
                     res['user_state_update']['mode'] = 'finish_game' + mode[0]
-                    answer += f' Ваш результат: {res["user_state_update"]["points"]}. ' + commands['finish_game'][
-                        'text']
+                    answer += f' Количество правильных ответов: {res["user_state_update"]["points"]}. ' \
+                              f'{RESULTS[min(5, res["user_state_update"]["points"] // 4)]} ' \
+                              f'{commands["finish_game"]["text"]}'
+                    card = commands['finish_game']['card'].copy()
+                    card['description'] = answer
                     res = save_response(
                         res=res,
                         text=answer,
                         tts=answer,
-                        buttons=commands['finish_game']['buttons']
+                        buttons=commands['finish_game']['buttons'],
+                        card=card
                     )
                     return res
             elif mode == 'quiz':
-                answer = choice(WRONGANS) + '\n'
+                answer = choice(WRONGANS) + ' '
         else:
             res['user_state_update']['points'] += 1
-            answer = choice(TRUEANS) + '\n'
+            answer = choice(TRUEANS) + ' '
         question, res['user_state_update']['questions'] = None, res['user_state_update']['questions'][:-1]
         if res['user_state_update']['questions']:
+            if mode == 'super_quiz' and res['user_state_update']['hearts'] < 3:
+                chance = randint(1, 10)
+                if chance == 1:
+                    answer += choice(GIVE_A_LIFE)
             question = res['user_state_update']['questions'][-1]
             res = return_question(res, question)
             res['response']['tts'] = answer + res['response']['tts']
@@ -563,13 +578,16 @@ def quiz_handler(event: dict, res: dict) -> dict:
                 return res
             else:
                 res['user_state_update']['mode'] = 'finish_game' + mode[0]
-                answer = f'{answer} Викторина окончена! Ваш результат: ' \
-                         f'{res["user_state_update"]["points"]}. {commands["finish_game"]["text"]}"'
+                answer = f'{answer} Викторина окончена! Ваш результат: {res["user_state_update"]["points"]}. ' \
+                         f'{RESULTS[res["user_state_update"]["points"] // 4]} {commands["finish_game"]["text"]}'
+                card = commands['finish_game']['card'].copy()
+                card['description'] = answer
                 res = save_response(
                     res=res,
                     text=answer,
                     tts=answer,
-                    buttons=commands['finish_game']['buttons']
+                    buttons=commands['finish_game']['buttons'],
+                    card=card
                 )
                 return res
 
