@@ -164,7 +164,8 @@ def dialog_handler(event: dict, context: Any) -> dict:
             'points': 0,
             'hearts': 3,
             'station': res['user_state_update']['station'],
-            'last_response': {}
+            'last_response': {},
+            'help': False
         }
         station = commands['station']['card'].copy()
         station['description'] = 'Добро пожаловать в навык "Литературный гений"!' + station['description'][8:]
@@ -190,6 +191,23 @@ def dialog_handler(event: dict, context: Any) -> dict:
                 buttons=commands[mode]['buttons'],
                 card=commands[mode]['card']
             )
+        elif 'restart' in mode or 'finish_game' in mode:
+            if mode[-1] == 's':
+                res = save_response(
+                    res=res,
+                    text=commands['super_quiz']['text'],
+                    tts=commands['super_quiz']['tts'],
+                    buttons=commands['super_quiz']['buttons'],
+                    card=commands['super_quiz']['card']
+                )
+            elif mode[-1] == 'q':
+                res = save_response(
+                    res=res,
+                    text=commands['quiz']['text'],
+                    tts=commands['quiz']['tts'],
+                    buttons=commands['quiz']['buttons'],
+                    card=commands['quiz']['card']
+                )
         else:
             res = save_response(
                 res=res,
@@ -234,6 +252,7 @@ def dialog_handler(event: dict, context: Any) -> dict:
             return res
         if 'YANDEX.CONFIRM' in list(event['request']['nlu']['intents'].keys()):
             res['user_state_update']['station'] = True
+            res['user_state_update']['mode'] = 'menu'
             res = save_response(
                 res=res,
                 text=commands['menu']['text'],
@@ -244,6 +263,7 @@ def dialog_handler(event: dict, context: Any) -> dict:
             return res
         if 'YANDEX.REJECT' in list(event['request']['nlu']['intents'].keys()):
             res['user_state_update']['station'] = False
+            res['user_state_update']['mode'] = 'menu'
             res = save_response(
                 res=res,
                 text=commands['menu']['text'],
@@ -297,6 +317,15 @@ def dialog_handler(event: dict, context: Any) -> dict:
 
     if 'restart' in mode:
         res['user_state_update']['help'] = False
+        if res['user_state_update']['help']:
+            res['user_state_update']['help'] = False
+            res = save_response(
+                res=res,
+                text=commands['restart']['text'],
+                tts=commands['restart']['tts'],
+                buttons=commands['restart']['buttons']
+            )
+            return res
         if 'YANDEX.CONFIRM' in list(event['request']['nlu']['intents'].keys()):
             res['user_state_update'] = {
                 'name': res['user_state_update']['name'],
@@ -347,6 +376,34 @@ def dialog_handler(event: dict, context: Any) -> dict:
             'last_response': {},
             'help': False
         }
+        if res['user_state_update']['help']:
+            if mode[-1] == 'q':
+                answer = f'Викторина окончена! Количество правильных ответов: {res["user_state_update"]["points"]}. ' \
+                         f'{RESULTS[res["user_state_update"]["points"] // 4]} {commands["finish_game"]["text"]}'
+                card = commands['finish_game']['card'].copy()
+                card['description'] = answer
+                res = save_response(
+                    res=res,
+                    text=answer,
+                    tts=answer,
+                    buttons=commands['finish_game']['buttons'],
+                    card=card
+                )
+                return res
+            else:
+                answer = f'Супер-игра окончена! Количество правильных ответов: {res["user_state_update"]["points"]}. ' \
+                          f'{RESULTS[min(5, res["user_state_update"]["points"] // 4)]} ' \
+                          f'{commands["finish_game"]["text"]}'
+                card = commands['finish_game']['card'].copy()
+                card['description'] = answer
+                res = save_response(
+                    res=res,
+                    text=answer,
+                    tts=answer,
+                    buttons=commands['finish_game']['buttons'],
+                    card=card
+                )
+                return res
         if 'YANDEX.CONFIRM' in list(event['request']['nlu']['intents'].keys()):
             if mode[-1] == 'q':
                 res['user_state_update']['mode'] = 'quiz'
@@ -368,24 +425,32 @@ def dialog_handler(event: dict, context: Any) -> dict:
         else:
             if mode[-1] == 'q':
                 answer = choice(MISUNDERSTANDING) + '\n'
-                answer = f'{answer} Викторина окончена! Ваш результат: ' \
-                         f'{res["user_state_update"]["points"]}. {commands["finish_game"]["text"]}"'
+                answer = f'{answer} Викторина окончена! Количество правильных ответов: ' \
+                         f'{res["user_state_update"]["points"]}. {RESULTS[res["user_state_update"]["points"] // 4]} ' \
+                         f'{commands["finish_game"]["text"]}'
+                card = commands['finish_game']['card'].copy()
+                card['description'] = answer
                 res = save_response(
                     res=res,
                     text=answer,
                     tts=answer,
-                    buttons=commands['finish_game']['buttons']
+                    buttons=commands['finish_game']['buttons'],
+                    card=card
                 )
                 return res
             else:
-                answer = choice(MISUNDERSTANDING) + ' ' + choice(LOOSE_A_LIFE[res['user_state_update']['hearts']]) + ' '
-                answer += f'Ваш результат: {res["user_state_update"]["points"]}. ' + commands['finish_game'][
-                    'text']
+                answer = choice(MISUNDERSTANDING) + ' '
+                answer += f'Супер-игра окончена! Количество правильных ответов: {res["user_state_update"]["points"]}.' \
+                          f' {RESULTS[min(5, res["user_state_update"]["points"] // 4)]} ' \
+                          f'{commands["finish_game"]["text"]}'
+                card = commands['finish_game']['card'].copy()
+                card['description'] = answer
                 res = save_response(
                     res=res,
                     text=answer,
                     tts=answer,
-                    buttons=commands['finish_game']['buttons']
+                    buttons=commands['finish_game']['buttons'],
+                    card=card
                 )
                 return res
 
@@ -405,33 +470,40 @@ def dialog_handler(event: dict, context: Any) -> dict:
 
 
 def menu_handler(event: dict, res: dict) -> dict:
+    if res['user_state_update']['help']:
+        res['user_state_update']['help'] = False
+        res = save_response(
+            res=res,
+            text=commands['menu']['text'],
+            tts=commands['menu']['tts'],
+            buttons=commands['menu']['buttons'],
+            card=commands['menu']['card']
+        )
+        return res
     res['user_state_update']['help'] = False
     if event['request']['type'] == "ButtonPressed":
         text = [event['request']['payload']['title'].lower()]
     else:
         text = event['request']['nlu']['tokens']
         text.append(event['request']['original_utterance'].lower().strip().strip('.'))
-    flag = True
+    mode = ''
     for ans in text:
         if 'викторина' in ans.strip().strip('.') or 'викторину' in ans.strip().strip('.'):
             mode = 'quiz'
-            flag = False
             break
         elif 'супер-игра' in ans.strip().strip('.') or 'супер игра' in ans.strip().strip('.') or \
                 'супер игру' in ans.strip().strip('.') or 'супер-игру' in ans.strip().strip('.'):
             mode = 'super_quiz'
-            flag = False
             break
         elif 'библиотека' in ans.strip().strip('.') or 'библиотеку' in ans.strip().strip('.'):
             mode = 'library'
-            flag = False
             break
-    if flag:
+    if not mode:
         err_msg = choice(MISUNDERSTANDING)
-        res['response']['text'] = err_msg + ' ' + commands[mode]['text']
-        res['response']['tts'] = err_msg + ' ' + commands[mode]['tts']
-        res['response']['buttons'] = commands[mode]['buttons']
-        res['response']['card'] = commands[mode]['card']
+        res['response']['text'] = err_msg + ' ' + commands['menu']['text']
+        res['response']['tts'] = err_msg + ' ' + commands['menu']['tts']
+        res['response']['buttons'] = commands['menu']['buttons']
+        res['response']['card'] = commands['menu']['card']
         return res
     res['user_state_update']['mode'] = mode
     card = commands[mode]['card'].copy()
@@ -461,6 +533,16 @@ def quiz_handler(event: dict, res: dict) -> dict:
     mode = res['user_state_update']['mode']
 
     if not res['user_state_update']['questions']:
+        if res['user_state_update']['help']:
+            res['user_state_update']['help'] = False
+            res = save_response(
+                res=res,
+                text=commands[mode]['text'],
+                tts=commands[mode]['tts'],
+                buttons=commands[mode]['buttons'],
+                card=commands[mode]['card']
+            )
+            return res
         res['user_state_update']['help'] = False
         if 'YANDEX.CONFIRM' in list(event['request']['nlu']['intents'].keys()):
             res['user_state_update'] = {
@@ -597,6 +679,16 @@ def library_handler(event: dict, res: dict) -> dict:
     print(event)
 
     if not res['user_state_update']['books']:
+        if res['user_state_update']['help']:
+            res['user_state_update']['help'] = False
+            res = save_response(
+                res=res,
+                text=commands[mode]['text'],
+                tts=commands[mode]['tts'],
+                buttons=commands[mode]['buttons'],
+                card=commands[mode]['card']
+            )
+            return res
         res['user_state_update']['help'] = False
         if 'YANDEX.CONFIRM' in list(event['request']['nlu']['intents'].keys()):
             res['user_state_update'] = {
