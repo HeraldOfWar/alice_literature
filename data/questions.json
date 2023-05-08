@@ -102,7 +102,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "От дома Раскольникова было ровно 730 шагов, но до чего?"
 			},
 			"buttons": [
@@ -151,7 +151,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кем был Раскольников?"
 			},
 			"buttons": [
@@ -209,7 +209,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали старуху-процентщицу?"
 			},
 			"buttons": [
@@ -255,7 +255,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "При помощи чего Родион Раскольников совершил убийство?"
 			},
 			"buttons": [
@@ -306,7 +306,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали младшую сестру Родиона Раскольникова?"
 			},
 			"buttons": [
@@ -358,7 +358,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Почему Раскольников решил убить старуху-процентщицу?"
 			},
 			"buttons": [
@@ -406,7 +406,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что Соня дает Раскольникову, когда он приходит к ней, перед тем как официально признаться в убийстве процентщицы?"
 			},
 			"buttons": [
@@ -453,7 +453,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Чем болела Катерина Ивановна, жена Мармеладова?"
 			},
 			"buttons": [
@@ -506,7 +506,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В какое время суток рассказчик беседовал со стариком?"
 			},
 			"buttons": [
@@ -556,7 +556,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали рассказчика?"
 			},
 			"buttons": [
@@ -597,7 +597,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Чем занимался Уж, находившись в ущелье в горах?"
 			},
 			"buttons": [
@@ -643,7 +643,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Откуда в ущелье взялся Сокол?"
 			},
 			"buttons": [
@@ -688,7 +688,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Почему Сокол жалел Ужа?"
 			},
 			"buttons": [
@@ -731,7 +731,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что захотел Уж, поговорив с Соколом?"
 			},
 			"buttons": [
@@ -778,7 +778,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что сделал Уж, после попытки взлететь?"
 			},
 			"buttons": [
@@ -832,7 +832,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какое блюдо готовил Рагим, когда он вместе с приятелем отдыхал на берегу моря?"
 			},
 			"buttons": [
@@ -878,7 +878,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что, по мнению Ужа, скрывают гордые птицы?"
 			},
 			"buttons": [
@@ -917,7 +917,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что воспевало море, подхватившее мёртвого Сокола?"
 			},
 			"buttons": [
@@ -955,7 +955,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В каком городе происходили главные действия?"
 			},
 			"buttons": [
@@ -998,7 +998,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали Кабаниху?"
 			},
 			"buttons": [
@@ -1049,7 +1049,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто из жителей города Калинова не боялся грозы?"
 			},
 			"buttons": [
@@ -1083,7 +1083,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Чьим племянником был Борис?"
 			},
 			"buttons": [
@@ -1129,7 +1129,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какая река протекала возле города в произведении?"
 			},
 			"buttons": [
@@ -1177,7 +1177,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто хотел изобрести вечный двигатель?"
 			},
 			"buttons": [
@@ -1219,7 +1219,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кого из персонажей автор называет «порядочно образованным» человеком?"
 			},
 			"buttons": [
@@ -1265,7 +1265,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "С кем отождествляет себя Катерина в своих монологах?"
 			},
 			"buttons": [
@@ -1311,7 +1311,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какой эпизод можно считать кульминацией пьесы?"
 			},
 			"buttons": [
@@ -1357,7 +1357,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "На что повлияла смерть Катерины?"
 			},
 			"buttons": [
@@ -1403,7 +1403,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто автор романа \"Евгений Онегин\"?"
 			},
 			"buttons": [
@@ -1458,7 +1458,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Где знакомится Он+егин с Тать+яной Л+ариной?"
 			},
 			"buttons": [
@@ -1513,7 +1513,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Назовите сословие, к которому принадлежит семья Лариной."
 			},
 			"buttons": [
@@ -1560,7 +1560,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как зовут главного героя романа \"Евгений Онегин\"?"
 			},
 			"buttons": [
@@ -1606,7 +1606,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали возлюбленную главного героя романа \"Евгений Онегин\"?"
 			},
 			"buttons": [
@@ -1639,7 +1639,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Где жил главный герой романа \"Евгений Онегин\" до переезда в деревню?"
 			},
 			"buttons": [
@@ -1693,7 +1693,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали товарища главного героя романа \"Евгений Онегин\"?"
 			},
 			"buttons": [
@@ -1726,7 +1726,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В какой стране учился Владимир Ленский из романа \"Евгений Онегин\"?"
 			},
 			"buttons": [
@@ -1779,7 +1779,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Назовите жанр произведения \"Евгений Онегин\"?"
 			},
 			"buttons": [
@@ -1819,7 +1819,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто автор повести \"Станционный смотритель\"?"
 			},
 			"buttons": [
@@ -1862,7 +1862,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "К какому циклу относится повесть \"Станционный смотритель\"?"
 			},
 			"buttons": [
@@ -1908,7 +1908,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как зовут главного героя в повести \"Станционный смотритель\"?"
 			},
 			"buttons": [
@@ -1943,7 +1943,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "О ком идет речь в цитате?"
 			},
 			"buttons": [
@@ -1991,7 +1991,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как отреагировала Дуня на приезд отца?"
 			},
 			"buttons": [
@@ -2040,7 +2040,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какие картины висели на стенах в доме у Вырина?"
 			},
 			"buttons": [
@@ -2090,7 +2090,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Куда отправился Самсон за дочерью?"
 			},
 			"buttons": [
@@ -2140,7 +2140,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как зовут дочь главного героя в повести \"Станционный смотритель\"?"
 			},
 			"buttons": [
@@ -2189,7 +2189,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "От какого лица ведется рассказ в повести \"Станционный смотритель\"?"
 			},
 			"buttons": [
@@ -2242,7 +2242,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Назовите жанр произведения \"Станционный смотритель\"?"
 			},
 			"buttons": [
@@ -2289,7 +2289,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "На протяжении скольких лет И.А. Гончаров писал \"Обломова\""
 			},
 			"buttons": [
@@ -2342,7 +2342,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кем был Илья Ильич Обломов?"
 			},
 			"buttons": [
@@ -2387,7 +2387,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Сколько крепостных крестьян принадлежат Обломову?"
 			},
 			"buttons": [
@@ -2434,7 +2434,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какая вещь была символом обломовщины?"
 			},
 			"buttons": [
@@ -2484,7 +2484,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как зовут слугу Обломова?"
 			},
 			"buttons": [
@@ -2520,7 +2520,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто из героев приглашает Обломова в Париж?"
 			},
 			"buttons": [
@@ -2563,7 +2563,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как Ольга и Обломов познакомились?"
 			},
 			"buttons": [
@@ -2610,7 +2610,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "За кого Ольга в итоге вышла замуж?"
 			},
 			"buttons": [
@@ -2657,7 +2657,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В честь кого Обломов назвал своего сына от Агафьи Матвеевны?"
 			},
 			"buttons": [
@@ -2704,7 +2704,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали Фамусова?"
 			},
 			"buttons": [],
@@ -2721,7 +2721,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Где начинаются события?"
 			},
 			"buttons": [],
@@ -2738,7 +2738,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Где находился последние три года Чацкий?"
 			},
 			"buttons": [],
@@ -2756,7 +2756,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В чём упрекнул Фамусов Чацкого?"
 			},
 			"buttons": [
@@ -2809,7 +2809,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кем был Сергей Сергеевич Скалозуб?"
 			},
 			"buttons": [],
@@ -2827,7 +2827,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какую характеристику Загорецкому даёт Горич?"
 			},
 			"buttons": [
@@ -2880,7 +2880,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто пустил слух о том, что Чацкий не в себе?"
 			},
 			"buttons": [],
@@ -2902,7 +2902,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В кого был влюблён Молчалин?"
 			},
 			"buttons": [],
@@ -2921,7 +2921,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "К какому циклу относится произведение?"
 			},
 			"buttons": [],
@@ -2937,7 +2937,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В каком журнале впервые был опубликован рассказ?"
 			},
 			"buttons": [
@@ -2989,7 +2989,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Откуда был родом Михаил Саввич Коваленко?"
 			},
 			"buttons": [],
@@ -3008,7 +3008,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как зовут сестру нового учителя географии?"
 			},
 			"buttons": [],
@@ -3027,7 +3027,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как зовут хозяина Муму?"
 			},
 			"buttons": [
@@ -3068,7 +3068,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кем был Герасим?"
 			},
 			"buttons": [
@@ -3120,7 +3120,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что не входило в обязанности Герасима?"
 			},
 			"buttons": [
@@ -3175,7 +3175,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как относились окружающие к Герасиму?"
 			},
 			"buttons": [
@@ -3230,7 +3230,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какой расцветки была Муму?"
 			},
 			"buttons": [
@@ -3278,7 +3278,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Почему барыня приказала, чтобы собаку убрали со двора?"
 			},
 			"buttons": [
@@ -3321,7 +3321,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Когда Герасим стал глухонемым?"
 			},
 			"buttons": [
@@ -3361,7 +3361,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "За кого вышла замуж Татьяна?"
 			},
 			"buttons": [
@@ -3401,7 +3401,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кого Герасим ненавидел?"
 			},
 			"buttons": [
@@ -3440,7 +3440,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что подарил Герасим Татьяне?"
 			},
 			"buttons": [
@@ -3479,7 +3479,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Сколько путников было в произведении?"
 			},
 			"buttons": [],
@@ -3499,7 +3499,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какой сказочный элемент помогал странникам?"
 			},
 			"buttons": [
@@ -3553,7 +3553,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какое название было у губернии?"
 			},
 			"buttons": [
@@ -3604,7 +3604,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как называлась дорога, на которой собрались мужики?"
 			},
 			"buttons": [
@@ -3647,7 +3647,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Имя сына, которого спасла крестьянка?"
 			},
 			"buttons": [
@@ -3699,7 +3699,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто поймал птенца пеночки?"
 			},
 			"buttons": [
@@ -3751,7 +3751,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какое историческое событие описывается в поэме?"
 			},
 			"buttons": [
@@ -3797,7 +3797,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какое прозвище дали крестьяне Матрёне Корчагиной?"
 			},
 			"buttons": [
@@ -3843,7 +3843,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Выходцем из какого сословия является 'народный заступник' Гриша Добросклонов?"
 			},
 			"buttons": [
@@ -3889,7 +3889,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Выходцем из какого сословия является 'народный заступник' Гриша Добросклонов?"
 			},
 			"buttons": [
@@ -3935,7 +3935,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Устами Григория Добросклонова автор выражает своё понимание того, что есть «народное счастье». В чём же оно заключается?"
 			},
 			"buttons": [
@@ -3982,7 +3982,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какое историческое событие описывается в рассказе?"
 			},
 			"buttons": [
@@ -4032,7 +4032,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали жену главного героя?"
 			},
 			"buttons": [
@@ -4084,7 +4084,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как зовут главного героя рассказа?"
 			},
 			"buttons": [
@@ -4129,7 +4129,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Куда немцы загнали пленных переночевать?"
 			},
 			"buttons": [
@@ -4176,7 +4176,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Когда Андрей попал в плен к немцам?"
 			},
 			"buttons": [
@@ -4218,7 +4218,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "За что был задушен Крыжнев?"
 			},
 			"buttons": [
@@ -4259,7 +4259,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Почему Миллер хотел расстрелять Андрея?"
 			},
 			"buttons": [
@@ -4298,7 +4298,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что побудило Миллера оставить Андрея в живых?"
 			},
 			"buttons": [
@@ -4338,7 +4338,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какая привычка осталась у Андрея после лагеря при разговоре с начальством?"
 			},
 			"buttons": [
@@ -4377,7 +4377,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что случилось с семьёй Андрея?"
 			},
 			"buttons": [
@@ -4412,14 +4412,43 @@
 		{
 			"book": "И.С. Тургенев \"Отцы и Дети\"",
 			"text": "Как звали Базарова?",
-			"tts": "Как звали Баз+арова?",
+			"tts": "Как звали Баз+арова? sil <[250]> николай sil <[250]> анатолий sil <[250]> евгений sil <[250]> антон",
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали Базарова?"
 			},
-			"buttons": [],
+			"buttons": [
+				{
+				 "title": "Николай",
+					"payload": {
+					   "title": "николай"
+					},
+					"hide": true
+				},
+				{
+					"title": "Анатолий",
+					"payload": {
+					   "title": "анатолий"
+					},
+					"hide": true
+				},
+				{
+					"title": "Евгений",
+					"payload": {
+					   "title": "евгений"
+					},
+					"hide": true
+				},
+				{
+					"title": "Антон",
+					"payload": {
+					   "title": "антон"
+					},
+					"hide": true
+				}
+			],
 			"answers": [
 				"евгений",
 				"женя",
@@ -4437,14 +4466,36 @@
 		{
 			"book": "И.С. Тургенев \"Отцы и Дети\"",
 			"text": "На каком факультете учился Базаров?",
-			"tts": "На каком факультете учился евг+ений баз+аров?",
+			"tts": "На каком факультете учился евг+ений баз+аров? sil <[250]> на филолог+ическом sil <[250]> на медиц+инском sil <[250]> или на юрид+ическом",
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "На каком факультете учился Базаров?"
 			},
-			"buttons": [],
+			"buttons": [
+				{
+				 "title": "На филологическом",
+					"payload": {
+					   "title": "на филологическом"
+					},
+					"hide": true
+				},
+				{
+					"title": "На медицинском",
+					"payload": {
+					   "title": "на медицинском"
+					},
+					"hide": true
+				},
+				{
+					"title": "На юридическом",
+					"payload": {
+					   "title": "на юридическом"
+					},
+					"hide": true
+				}
+			],
 			"answers": [
 				"медицинском",
 				"медицина",
@@ -4460,7 +4511,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что удивило Базарова в Павле Петровиче Кирсанове?"
 			},
 			"buttons": [
@@ -4508,14 +4559,43 @@
 		{
 			"book": "И.С. Тургенев \"Отцы и Дети\"",
 			"text": "Кем Павел Петрович приходился Аркадию?",
-			"tts": "Кем Павел Петр+ович приходился Арк+адию ",
+			"tts": "Кем Павел Петр+ович приходился Арк+адию sil <[150]> дядей sil <[150]> отцом sil <[150]> дедом sil <[150]> м+атерью",
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кем Павел Петрович приходился Аркадию?"
 			},
-			"buttons": [],
+			"buttons": [
+				{
+					"title": "Дядей",
+					"payload": {
+						"title": "дядей"
+					},
+					"hide": true
+				},
+				{
+					"title": "Отцом",
+					"payload": {
+						"title": "отцом"
+					},
+					"hide": true
+				},
+				{
+					"title": "Дедом",
+					"payload": {
+						"title": "дедом"
+					},
+					"hide": true
+				},
+				{
+					"title": "Матерью",
+					"payload": {
+						"title": "матерью"
+					},
+					"hide": true
+				}
+			],
 			"answers": [
 				"дядей",
 				"он приходился ему дядей",
@@ -4531,7 +4611,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "На поиски чего отправился Базаров на следующее утро после приезда?"
 			},
 			"buttons": [
@@ -4572,39 +4652,52 @@
 		},
 		{
 			"book": "И.С. Тургенев \"Отцы и Дети\"",
-			"text": "Какой философии придерживался Базаров?",
-			"tts": "Какой философии придерживался Базаров",
-			"card": {
-				"type": "BigImage",
-				"image_id": "",
-				"title": "Вопрос №",
-				"description": "Какой философии придерживался Базаров?"
-			},
-			"buttons": [],
-			"answers": [
-				"нигилизм",
-				"нигилизму",
-				"нигилистической"
-			],
-			"station": false
-		},
-		{
-			"book": "И.С. Тургенев \"Отцы и Дети\"",
 			"text": "Что стало причиной смерти Базарова?",
-			"tts": "Что стало причиной смерти Баз+арова",
+			"tts": "Что стало причиной смерти Баз+арова sil <[150]> крушение самолёта sil <[150]> тиф sil <[150]> вич sil <[150]> или самоубийство",
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что стало причиной смерти Базарова?"
 			},
-			"buttons": [],
+			"buttons": [
+				{
+					"title": "Крушение самолёта",
+					"payload": {
+						"title": "крушение самолёта"
+					},
+					"hide": true
+				},
+				{
+					"title": "Тиф",
+					"payload": {
+						"title": "тиф"
+					},
+					"hide": true
+				},
+				{
+					"title": "Вич",
+					"payload": {
+						"title": "вич"
+					},
+					"hide": true
+				},
+				{
+					"title": "Самоубийство",
+					"payload": {
+						"title": "самоубийство"
+					},
+					"hide": true
+				}
+			],
 			"answers": [
 				"тиф",
 				"болезнь",
 				"порез",
 				"невнимательность",
-				"операция"
+				"операция",
+				"он заболел тифом",
+				"вариант 2", "2", "2 вариант", "вариант под номером 2", "ответ 2", "второй вариант", "вариант второй", "второе", "второй", "вариант 2"
 			],
 			"station": false
 		},
@@ -4615,7 +4708,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как Базаров относился к Анне Сергеевне Одинцовой?"
 			},
 			"buttons": [
@@ -4656,13 +4749,161 @@
 			"station": false
 		},
 		{
+			"book": "И.С. Тургенев \"Отцы и Дети\"",
+			"text": "Как звали содержанку Николая Петровича?",
+			"tts": "Как звали содержанку Николая Петровича? sil <[150]> варианты ответа: Фенечка sil <[150]> Сюз+анна sil <[150]> Юли+анна",
+			"card": {
+				"type": "BigImage",
+				"image_id": "",
+				"title": "Вопрос No",
+				"description": "Как звали содержанку Николая Петровича?"
+			},
+			"buttons": [
+				{
+					"title": "Фенечка",
+					"payload": {
+						"title": "фенечка"
+					},
+					"hide": true
+				},
+				{
+					"title": "Сюзанна",
+					"payload": {
+						"title": "сюзанна"
+					},
+					"hide": true
+				},
+				{
+					"title": "Юлианна",
+					"payload": {
+						"title": "юлианна"
+					},
+					"hide": true
+				}
+			],
+			"answers": [
+				"первый",
+				"один",
+				"1",
+				"фенечка",
+				"её звали фенечка",
+				"первый вариант",
+				"вариант 1",
+				"1 вариант",
+				"ее звали фенечка",
+				"её имя фенечка"
+			],
+			"station": false
+		},
+		{
+			"book": "И.С. Тургенев \"Отцы и Дети\"",
+			"text": "Кем была Одинцова?",
+			"tts": "Кем была Одинц+ова? sil <[150]> варианты ответа: богатой вдов+ой sil <[150]> свободной эмансип+ированной женщиной sil <[150]> дочерью богатого помещика",
+			"card": {
+				"type": "BigImage",
+				"image_id": "",
+				"title": "Вопрос No",
+				"description": "Кем была Одинцова?"
+			},
+			"buttons": [
+				{
+					"title": "Богатой вдовой",
+					"payload": {
+						"title": "богатой вдовой"
+					},
+					"hide": true
+				},
+				{
+					"title": "Свободной эмансипированной женщиной",
+					"payload": {
+						"title": "свободной эмансипированной женщиной"
+					},
+					"hide": true
+				},
+				{
+					"title": "Дочерью богатого помещика",
+					"payload": {
+						"title": "дочерью богатого помещика"
+					},
+					"hide": true
+				}
+			],
+			"answers": [
+				"первый",
+				"один",
+				"1",
+				"богатая вдова",
+				"вдова",
+				"первый вариант",
+				"вариант 1",
+				"1 вариант",
+				"вдовой",
+				"богатой вдовой",
+				"она была вдова",
+				"она была вдовой",
+				"она была богатая вдова",
+				"она была богатой вдовой"
+			],
+			"station": false
+		},
+		{
+			"book": "И.С. Тургенев \"Отцы и Дети\"",
+			"text": "Какой философии придерживался Базаров?",
+			"tts": "Какой философии придерживался Баз+аров? sil <[150]> Растаф+ари sil <[150]> нигил+изм sil <[150]> национал+изм sil <[150]> либертари+анство",
+			"card": {
+				"type": "BigImage",
+				"image_id": "",
+				"title": "Вопрос No",
+				"description": "Какой философии придерживался Базаров?"
+			},
+			"buttons": [
+				{
+					"title": "Растафари",
+					"payload": {
+						"title": "растафари"
+					},
+					"hide": true
+				},
+				{
+					"title": "Нигилизм",
+					"payload": {
+						"title": "нигилизм"
+					},
+					"hide": true
+				},
+				{
+					"title": "Национализм",
+					"payload": {
+						"title": "национализм"
+					},
+					"hide": true
+				},
+				{
+					"title": "Либертарианство",
+					"payload": {
+						"title": "либертарианство"
+					},
+					"hide": true
+				}
+			],
+			"answers": [
+				"вариант 2", "2", "2 вариант", "вариант под номером 2", "ответ 2", "второй вариант", "вариант второй", "второе", "второй", "вариант 2",
+				"нигилизм",
+				"он придерживался нигилизма",
+				"базаров был нигилистом",
+				"базаров придерживался нигилизма",
+				"он был нигилистом"
+			],
+			"station": false
+		},
+		{
 			"book": "М.Ю. Лермонтов \"Герой нашего времени\"",
 			"text": "Какое имя у Печорина?",
 			"tts": "Какое имя у Печ+орина?",
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какое имя у Печорина?"
 			},
 			"buttons": [],
@@ -4681,7 +4922,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Из какого города ехал рассказчик в начале романа?"
 			},
 			"buttons": [],
@@ -4698,7 +4939,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "К какому виду относится роман Герой нашего времени?"
 			},
 			"buttons": [
@@ -4736,7 +4977,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кого встретил рассказчик по дороге в самом начале романа?"
 			},
 			"buttons": [],
@@ -4755,7 +4996,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Где Печорин встретил Бэлу?"
 			},
 			"buttons": [
@@ -4793,7 +5034,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Отчего умерла Бела?"
 			},
 			"buttons": [
@@ -4831,7 +5072,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какой вопрос мучал Печорина?"
 			},
 			"buttons": [
@@ -4876,7 +5117,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Умер ли Вучич?"
 			},
 			"buttons": [],
@@ -4897,7 +5138,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "К какому жанру литературы относится это произведение?"
 			},
 			"buttons": [
@@ -4948,7 +5189,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как называется волшебный край, описанный в самом начале поэмы?"
 			},
 			"buttons": [
@@ -4990,7 +5231,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "За кого из героев поэмы вышла замуж Людмила?"
 			},
 			"buttons": [
@@ -5036,7 +5277,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто украл княжну Людмилу?"
 			},
 			"buttons": [
@@ -5082,7 +5323,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "При помощи чего разбудил Руслан Людмилу?"
 			},
 			"buttons": [
@@ -5128,7 +5369,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кем является похититель Людмилы?"
 			},
 			"buttons": [
@@ -5180,7 +5421,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В чём была заключена магическая сила Черномора?"
 			},
 			"buttons": [
@@ -5226,7 +5467,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какой волшебный предмет помог Людмиле скрыться от Черномора в его замке?"
 			},
 			"buttons": [
@@ -5279,7 +5520,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кем стал Ратмир после женитьбы?"
 			},
 			"buttons": [
@@ -5322,7 +5563,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что оживило Руслана?"
 			},
 			"buttons": [
@@ -5361,7 +5602,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "К какому литературному жанру относится это произведение?"
 			},
 			"buttons": [
@@ -5420,7 +5661,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто занимался воспитанием и образованием Петра Гринёва?"
 			},
 			"buttons": [
@@ -5465,7 +5706,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Куда отец отправил Петра Гринёва служить?"
 			},
 			"buttons": [
@@ -5510,7 +5751,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что помешало Петру Гринёву беспрепятственно добраться до Оренбурга?"
 			},
 			"buttons": [
@@ -5565,7 +5806,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кем был Иван Кузьмич Миронов?"
 			},
 			"buttons": [
@@ -5618,7 +5859,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как Швабрин относился к Маше, капитанской дочке?"
 			},
 			"buttons": [
@@ -5664,7 +5905,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Чем закончилась дуэль Швабрина и Петра Гринёва?"
 			},
 			"buttons": [
@@ -5711,7 +5952,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали Швабрина?"
 			},
 			"buttons": [
@@ -5763,7 +6004,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто составлял большую часть войска в Белогорской крепости?"
 			},
 			"buttons": [
@@ -5808,7 +6049,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто составлял большую часть войска в Белогорской крепости?"
 			},
 			"buttons": [
@@ -5854,7 +6095,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "К какому жанру литературы относится произведение?"
 			},
 			"buttons": [
@@ -5900,7 +6141,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В каком году было написано произведение?"
 			},
 			"buttons": [
@@ -5953,7 +6194,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали приятеля Пушкина, рассказ которого лёг в основу произведения?"
 			},
 			"buttons": [
@@ -6004,7 +6245,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Испытанию с каким животным подвергается Дубровский в имении Троекурова?"
 			},
 			"buttons": [
@@ -6056,7 +6297,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как зовут жениха Маши из романа Дубровский?"
 			},
 			"buttons": [
@@ -6107,7 +6348,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Чему учил Машу француз Дефорж?"
 			},
 			"buttons": [
@@ -6149,7 +6390,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Сколько фильмов было снято по мотивам произведения?"
 			},
 			"buttons": [
@@ -6202,7 +6443,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Чем отличился Дефорж, получив при этом репутацию храброго человека?"
 			},
 			"buttons": [
@@ -6242,7 +6483,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что должна была сделать Маша по договоренности с Дубровским в случае опасности?"
 			},
 			"buttons": [
@@ -6292,7 +6533,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Почему Маша отказала Дубровскому?"
 			},
 			"buttons": [
@@ -6341,7 +6582,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "К какому жанру литературы относится произведение?"
 			},
 			"buttons": [
@@ -6390,7 +6631,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какой российский император запретил к печати произведение?"
 			},
 			"buttons": [
@@ -6442,7 +6683,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В каком году поэма была впервые напечатана без цензуры?"
 			},
 			"buttons": [
@@ -6490,7 +6731,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали возлюбленную главного героя в поэме?"
 			},
 			"buttons": [
@@ -6537,7 +6778,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какое событие стало причиной гибели Параши и её матери в поэме?"
 			},
 			"buttons": [
@@ -6584,7 +6825,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В каком городе происходят события, описанные в произведении?"
 			},
 			"buttons": [
@@ -6630,7 +6871,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кого из героев произведения характеризует цитата: «кумир на бронзовом коне»?"
 			},
 			"buttons": [
@@ -6677,7 +6918,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "На берегу какой реки происходят события произведения?"
 			},
 			"buttons": [
@@ -6724,7 +6965,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что случилось с возлюбленной Евгения Парашей?"
 			},
 			"buttons": [
@@ -6765,7 +7006,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что случилось с возлюбленной Евгения Парашей?"
 			},
 			"buttons": [
@@ -6812,7 +7053,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Из скольки действий состоит комедия?"
 			},
 			"buttons": [
@@ -6866,7 +7107,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "К какому жанру относится это произведение?"
 			},
 			"buttons": [
@@ -6914,7 +7155,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как зовут героя этой комедии, которого жители принимают за ревизора?"
 			},
 			"buttons": [
@@ -6965,7 +7206,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто приходит к Хлестакову после того, как все чиновники уходят?"
 			},
 			"buttons": [
@@ -7008,7 +7249,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто сообщает остальным героям о том, что ревизор прибыл в город?"
 			},
 			"buttons": [
@@ -7057,7 +7298,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что характерно для речи Хлестакова?"
 			},
 			"buttons": [
@@ -7104,7 +7345,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто из чиновников в разговоре с Хлестаковым доносит на своих же коллег?"
 			},
 			"buttons": [
@@ -7150,7 +7391,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто в финальной сцене приносит известие о приехавшем «по именному повелению из Петербурга чиновнике»?"
 			},
 			"buttons": [
@@ -7196,7 +7437,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что такое Хлестаковщина?"
 			},
 			"buttons": [
@@ -7243,7 +7484,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто из героев пьесы сказал:« ... конечно, Александр Македонский герой, но зачем же стулья ломать? От этого убыток казне»?"
 			},
 			"buttons": [
@@ -7289,7 +7530,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Сколько было сыновей у Тараса Бульбы?"
 			},
 			"buttons": [
@@ -7339,7 +7580,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Против кого отправились воевать запорожские казаки?"
 			},
 			"buttons": [
@@ -7382,7 +7623,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как поступил Тарас Бульба, встретившись с Андрием после его предательства?"
 			},
 			"buttons": [
@@ -7422,7 +7663,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что произошло с Остапом?"
 			},
 			"buttons": [
@@ -7467,7 +7708,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как погиб Тарас Бульба?"
 			},
 			"buttons": [
@@ -7515,7 +7756,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Куда решил Тарас Бульба отправить своих сыновей?"
 			},
 			"buttons": [
@@ -7553,7 +7794,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто из братьев во время обучения был организатором всевозможных предприятий и выходок?"
 			},
 			"buttons": [
@@ -7599,7 +7840,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кому из героев принадлежат известные слова «есть ли ещё порох в пороховницах»?"
 			},
 			"buttons": [
@@ -7646,7 +7887,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали Чичикова?"
 			},
 			"buttons": [
@@ -7695,7 +7936,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В какой город приехал Чичиков?"
 			},
 			"buttons": [
@@ -7754,7 +7995,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали крепостного, находившегося в услужении у Чичикова?"
 			},
 			"buttons": [
@@ -7797,7 +8038,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Чей дом стоял в окружении нескольких разбросанных в английской манере клумб и беседки с надписью: «Храм уединённого размышления»?"
 			},
 			"buttons": [
@@ -7847,7 +8088,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что хотел купить Чичиков у помещиков?"
 			},
 			"buttons": [
@@ -7903,7 +8144,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "У кого остался на ночлег Чичиков по дороге от Манилова к Собакевичу?"
 			},
 			"buttons": [
@@ -7952,7 +8193,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Куда хотел вывезти приобретенных «крестьян» Чичиков?"
 			},
 			"buttons": [
@@ -8000,7 +8241,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Жители города начинают подозревать, что Чичиков – это переодетый:"
 			},
 			"buttons": [
@@ -8058,7 +8299,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какое событие остановило Чичикова, когда он намеревался спешно покинуть город?"
 			},
 			"buttons": [
@@ -8110,7 +8351,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какую должность занимал Чичиков?"
 			},
 			"buttons": [
@@ -8156,7 +8397,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кем был Акакий Акакиевич?"
 			},
 			"buttons": [
@@ -8208,7 +8449,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "К какому литературному жанру относится произведение «Шинель»?"
 			},
 			"buttons": [
@@ -8251,7 +8492,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как относился Акакий Акакиевич к своей работе?"
 			},
 			"buttons": [
@@ -8305,7 +8546,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В каком городе жил Акакий Акакиевич?"
 			},
 			"buttons": [
@@ -8361,7 +8602,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Что решил Акакий Акакиевич сделать со своей шинелью?"
 			},
 			"buttons": [
@@ -8406,7 +8647,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какую сумму нужно было насобирать Акакию Акакиевичу на шинель?"
 			},
 			"buttons": [
@@ -8451,7 +8692,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто снял шинель с Акакия Акакиевича?"
 			},
 			"buttons": [
@@ -8497,7 +8738,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какая болезнь одолела Акакия Акакиевича?"
 			},
 			"buttons": [
@@ -8545,7 +8786,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Из меха какого животного сшит воротник на новой шинели Акакия Акакиевича?"
 			},
 			"buttons": [
@@ -8598,7 +8839,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "О ком из героев идет речь в цитатах: умел «солидно пить», и «удачно чинить чиновничьи панталоны и фраки»?"
 			},
 			"buttons": [
@@ -8644,7 +8885,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "К какому жанру литературы относится произведение?"
 			},
 			"buttons": [
@@ -8686,7 +8927,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В каком году было экранизировано произведение?"
 			},
 			"buttons": [
@@ -8727,7 +8968,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В каком журнале было впервые напечатано произведение?"
 			},
 			"buttons": [
@@ -8780,7 +9021,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали брата главного героя?"
 			},
 			"buttons": [
@@ -8828,7 +9069,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В какое время года происходили описанные в произведении события?"
 			},
 			"buttons": [
@@ -8874,7 +9115,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали учителя мальчика?"
 			},
 			"buttons": [
@@ -8913,7 +9154,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как мальчик относился к родителям?"
 			},
 			"buttons": [
@@ -8952,7 +9193,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали девочку, которая нравилась мальчику?"
 			},
 			"buttons": [
@@ -8992,7 +9233,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "О ком постоянно думал мальчик?"
 			},
 			"buttons": [
@@ -9032,7 +9273,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Когда мама мальчика умерла?"
 			},
 			"buttons": [
@@ -9072,7 +9313,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "К какому жанру литературы это относится произведение?"
 			},
 			"buttons": [
@@ -9115,7 +9356,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как зовут любимого сына Анны Аркадьевны?"
 			},
 			"buttons": [
@@ -9164,7 +9405,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто становится новой возлюбленной Вронского?"
 			},
 			"buttons": [
@@ -9217,7 +9458,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как Анна Каренина заканчивает свою жизнь?"
 			},
 			"buttons": [
@@ -9271,7 +9512,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какое отчество было у Анны Карениной?"
 			},
 			"buttons": [
@@ -9317,7 +9558,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Почему Кити Щербацкая отказала Левину?"
 			},
 			"buttons": [
@@ -9364,7 +9605,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали мужа Анны Карениной?"
 			},
 			"buttons": [
@@ -9404,7 +9645,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Сколько лет было сыну Анны Карениной?"
 			},
 			"buttons": [
@@ -9443,7 +9684,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "По какой стране путешествовали Вронский и Анна с дочерью перед тем, как вернуться в Петербург?"
 			},
 			"buttons": [
@@ -9482,7 +9723,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали лошадь Вронского?"
 			},
 			"buttons": [
@@ -9528,7 +9769,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "На каком языке была впервые написана сказка?"
 			},
 			"buttons": [],
@@ -9545,7 +9786,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какой части тела недоставало оловянному солдатику?"
 			},
 			"buttons": [],
@@ -9563,7 +9804,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кто была возлюбленной солдатика?"
 			},
 			"buttons": [],
@@ -9580,7 +9821,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кого встречает солдатик, пока плывёт на бумажном кораблике?"
 			},
 			"buttons": [],
@@ -9597,7 +9838,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Куда сталкивают Стойкого оловянного солдатика в конце сказки?"
 			},
 			"buttons": [
@@ -9649,7 +9890,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "К какому жанру литературы относится произведение?"
 			},
 			"buttons": [
@@ -9697,7 +9938,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какое историческое событие описывается в произведении?"
 			},
 			"buttons": [
@@ -9750,7 +9991,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Сколько глав в произведении?"
 			},
 			"buttons": [
@@ -9805,7 +10046,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В каком году начинаются действия?"
 			},
 			"buttons": [
@@ -9849,7 +10090,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В кого была влюблена Наташа Ростова на момент ее первой встречи с читателем?"
 			},
 			"buttons": [
@@ -9896,7 +10137,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "На ком женился Пьер Безухов в 1806 году?"
 			},
 			"buttons": [
@@ -9945,7 +10186,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Назовите имя и отчество графа Ростова."
 			},
 			"buttons": [
@@ -9985,7 +10226,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "О чём Андрей мечтал в начале романа?"
 			},
 			"buttons": [
@@ -10024,7 +10265,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали хозяина Шарика?"
 			},
 			"buttons": [],
@@ -10054,7 +10295,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Кем был Швондер?"
 			},
 			"buttons": [],
@@ -10079,7 +10320,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Чем профессор заманил Шарика?"
 			},
 			"buttons": [
@@ -10134,7 +10375,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Какое имя выбрал себе Шарик после превращения?"
 			},
 			"buttons": [
@@ -10184,7 +10425,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "К какому сборнику относится это произведение?"
 			},
 			"buttons": [
@@ -10222,7 +10463,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "В каком городе находилась бурса главных героев?"
 			},
 			"buttons": [
@@ -10268,7 +10509,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Сколько ночей Хома читал молитвы?"
 			},
 			"buttons": [],
@@ -10288,7 +10529,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Как звали чудовище, нашедшего Хому?"
 			},
 			"buttons": [],
@@ -10307,7 +10548,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "К какому литературному жанру относится это произведение?"
 			},
 			"buttons": [],
@@ -10325,7 +10566,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "1540737/5ed74ae305b8017d4d87",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "\"Рожденный ползать — летать не может!\" - из какого произведения эта строка?"
 			},
 			"buttons": [],
@@ -10407,7 +10648,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/7a973ee85fc246896353",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "\"Хорошо тебе, Катя! А я-то зачем остался жить на свете да мучиться! (Падает на труп жены.)\" - из какого произведения эта строка?"
 			},
 			"buttons": [],
@@ -10453,7 +10694,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/7a973ee85fc246896353",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "\"Стой и не шевелись! Я тебя породил, я тебя и убью!\"- из какого произведения эта строчка?"
 			},
 			"buttons": [],
@@ -10489,7 +10730,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/7a973ee85fc246896353",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "\"Нет, псарня чудная, вряд людям вашим житье такое ж, как вашим собакам...\" - из какого произведения эти слова?"
 			},
 			"buttons": [],
@@ -10523,7 +10764,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/7a973ee85fc246896353",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "\"Мне даже на пакетах пишут: «ваше превосходительство». Один раз я даже управлял департаментом\" - из какого произведения данная цитата?"
 			},
 			"buttons": [],
@@ -10559,7 +10800,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/7a973ee85fc246896353",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "\"Все смешалось в доме Облонских. Жена узнала, что муж был в связи с бывшею в их доме француженкою-гувернанткой, и объявила мужу, что не может жить с ним в одном доме.\" - из какого произведения эта строчка?"
 			},
 			"buttons": [],
@@ -10595,7 +10836,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/7a973ee85fc246896353",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "\"Они сошлись: Волна и камень, Стихи и проза, лёд и пламень.\" - из какого произведения эта строчка?"
 			},
 			"buttons": [],
@@ -10630,7 +10871,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/7a973ee85fc246896353",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "\"Неужели зло так привлекательно?...\" - из какого произведения эта строчка?"
 			},
 			"buttons": [],
@@ -10664,7 +10905,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/7a973ee85fc246896353",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "\"Пустое сердце бьётся ровно...\" - из какого произведения эта строчка?"
 			},
 			"buttons": [],
@@ -10703,7 +10944,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/7a973ee85fc246896353",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "\"Трус тот, кто боится и бежит; а кто боится и не бежит, тот ещё не трус.\" - из какого произведения эта строчка?"
 			},
 			"buttons": [],
@@ -10753,7 +10994,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/7a973ee85fc246896353",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "\"Служить бы рад, прислуживаться тошно.\" - из какого произведения эта строчка?"
 			},
 			"buttons": [],
@@ -10804,7 +11045,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/7a973ee85fc246896353",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "\"Я ничьих мнений не разделяю; я имею свои\" - из какого произведения эта строчка?"
 			},
 			"buttons": [],
@@ -10855,7 +11096,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/7a973ee85fc246896353",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "\"Человечество любит деньги, из чего бы те ни были сделаны.\" - из какого произведения эта строчка?"
 			},
 			"buttons": [],
@@ -10909,7 +11150,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/7a973ee85fc246896353",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "\"Золотой болван — всё болван.\" - из какого произведения эта строчка?"
 			},
 			"buttons": [],
@@ -10963,7 +11204,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/7a973ee85fc246896353",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "\"А судьи кто?..\" - из какого произведения эта строчка?"
 			},
 			"buttons": [],
@@ -11014,7 +11255,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/9eddac5ca569877d2f43",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Из какой книги эта картинка?"
 			},
 			"buttons": [],
@@ -11040,7 +11281,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "1652229/3d69d49f3d486edccf97",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Из какой книги эта картинка?"
 			},
 			"buttons": [],
@@ -11068,7 +11309,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "1540737/1ac6c8430fbc8cb53129",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Из какой книги эта картинка?"
 			},
 			"buttons": [],
@@ -11096,7 +11337,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "1652229/923238ed4a2f8da4dd2a",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Из какой книги эта картинка?"
 			},
 			"buttons": [],
@@ -11123,7 +11364,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "1540737/1b16b715ff3c4f4a83dd",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Из какой книги эта картинка?"
 			},
 			"buttons": [],
@@ -11150,7 +11391,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "1030494/0c3f517afa19992c71fa",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Из какой книги эта картинка?"
 			},
 			"buttons": [],
@@ -11177,7 +11418,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/2d6dd817aca2f4f7c0b6",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Из какой книги эта картинка?"
 			},
 			"buttons": [],
@@ -11205,7 +11446,7 @@
 			"card": {
 				"type": "BigImage",
 				"image_id": "997614/0355ba7bc2ce94d6e393",
-				"title": "Вопрос №",
+				"title": "Вопрос No",
 				"description": "Из какой книги эта картинка?"
 			},
 			"buttons": [],
