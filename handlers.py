@@ -193,6 +193,15 @@ def dialog_handler(event: dict, context: Any) -> dict:
         res['user_state_update'] = event['state']['user'].copy()
 
     if event['session']['message_id'] == 0:
+        res['user_state_update'] = {
+            'mode': 'menu',
+            'books': [],
+            'questions': [],
+            'points': 0,
+            'hearts': 3,
+            'last_response': {},
+            'help': False
+        }
         res = save_response(
             res=res,
             text=commands['menu']['text'],
@@ -879,7 +888,9 @@ def return_question(res: dict, question_original: dict) -> dict:
         question['card']['image_id'] = choice(IMAGES_FOR_QUESTIONS)
 
     book = question['book']
-    if 'цитата' in book.lower() or 'картинка' in book.lower():
+    if res['user_state_update']['mode'] == 'book_quiz':
+        pass
+    elif 'цитата' in book.lower() or 'картинка' in book.lower():
         question['tts'] = book + ' sil <[250]> ' + question['tts']
     else:
         try:
@@ -887,7 +898,6 @@ def return_question(res: dict, question_original: dict) -> dict:
             question['tts'] = author + ' ' + ' '.join(book.split()[2:]) + ' sil <[250]> ' + question['tts']
         except Exception:
             question['tts'] = 'Итак, следующая книга: ' + book + ' sil <[250]> ' + question['tts']
-
     res = save_response(
         res=res,
         text=question['text'],
