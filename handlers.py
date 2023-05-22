@@ -178,7 +178,6 @@ def dialog_handler(event: dict, context: Any) -> dict:
             'questions': [],
             'points': 0,
             'hearts': 3,
-            'station': False,
             'last_response': {},
             'help': False
         }
@@ -194,25 +193,14 @@ def dialog_handler(event: dict, context: Any) -> dict:
         res['user_state_update'] = event['state']['user'].copy()
 
     if event['session']['message_id'] == 0:
-        res['user_state_update'] = {
-            'mode': 'station',
-            'books': [],
-            'questions': [],
-            'points': 0,
-            'hearts': 3,
-            'station': res['user_state_update']['station'],
-            'last_response': {},
-            'help': False
-        }
-        station = commands['station']['card'].copy()
-        station['description'] = 'Добро пожаловать в навык "Викторина по литературе"!' + station['description'][8:]
         res = save_response(
             res=res,
-            text='Добро пожаловать в навык "Викторина по литературе"!' + commands['station']['text'][8:],
-            tts='Добро пожаловать в навык "Викторина по литературе"!' + commands['station']['tts'][8:],
-            buttons=commands['station']['buttons'],
-            card=station
+            text=commands['menu']['text'],
+            tts=commands['menu']['tts'],
+            buttons=commands['menu']['buttons'],
+            card=commands['menu']['card']
         )
+        res['response']['tts'] = 'Добро пожаловать в навык "Викторина по литературе". ' + commands['menu']['tts']
         return res
 
     mode = res['user_state_update']['mode']
@@ -276,58 +264,16 @@ def dialog_handler(event: dict, context: Any) -> dict:
             res['response'][key] = item
         return res
 
-    if mode == 'station' or mode == 'start':
-        if mode == 'start':
-            res['user_state_update']['mode'] = 'station'
-            res = save_response(
-                res=res,
-                text=commands['station']['text'],
-                tts=commands['station']['tts'],
-                buttons=commands['station']['buttons'],
-                card=commands['station']['card']
-            )
-            return res
+    if mode == 'start':
         if res['user_state_update']['help']:
             res['user_state_update']['help'] = False
-            res = save_response(
-                res=res,
-                text=commands['station']['text'],
-                tts=commands['station']['tts'],
-                buttons=commands['station']['buttons'],
-                card=commands['station']['card']
-            )
-            return res
-        if 'YANDEX.CONFIRM' in list(event['request']['nlu']['intents'].keys()):
-            res['user_state_update']['station'] = True
-            res['user_state_update']['mode'] = 'menu'
-            res = save_response(
-                res=res,
-                text=commands['menu']['text'],
-                tts=commands['menu']['tts'],
-                buttons=commands['menu']['buttons'],
-                card=commands['menu']['card']
-            )
-            return res
-        if 'YANDEX.REJECT' in list(event['request']['nlu']['intents'].keys()):
-            res['user_state_update']['station'] = False
-            res['user_state_update']['mode'] = 'menu'
-            res = save_response(
-                res=res,
-                text=commands['menu']['text'],
-                tts=commands['menu']['tts'],
-                buttons=commands['menu']['buttons'],
-                card=commands['menu']['card']
-            )
-            return res
-        station = commands['station']['card'].copy()
-        err_msg = choice(MISUNDERSTANDING)
-        station['description'] = err_msg + station['description'][8:]
+        res['user_state_update']['mode'] = 'menu'
         res = save_response(
             res=res,
-            text=err_msg + commands['station']['text'][8:],
-            tts=err_msg + commands['station']['tts'][8:],
-            buttons=commands['station']['buttons'],
-            card=station
+            text=commands['menu']['text'],
+            tts=commands['menu']['tts'],
+            buttons=commands['menu']['buttons'],
+            card=commands['menu']['card']
         )
         return res
 
@@ -349,7 +295,6 @@ def dialog_handler(event: dict, context: Any) -> dict:
                 'questions': [],
                 'points': 0,
                 'hearts': 3,
-                'station': res['user_state_update']['station'],
                 'last_response': {},
                 'help': False
             }
@@ -380,7 +325,6 @@ def dialog_handler(event: dict, context: Any) -> dict:
                 'questions': [],
                 'points': 0,
                 'hearts': 3,
-                'station': res['user_state_update']['station'],
                 'last_response': {},
                 'help': False
             }
@@ -421,7 +365,6 @@ def dialog_handler(event: dict, context: Any) -> dict:
                 'questions': [],
                 'points': 0,
                 'hearts': 3,
-                'station': res['user_state_update']['station'],
                 'last_response': {},
                 'help': False
             }
@@ -432,7 +375,6 @@ def dialog_handler(event: dict, context: Any) -> dict:
                 'questions': [],
                 'points': 0,
                 'hearts': 3,
-                'station': res['user_state_update']['station'],
                 'last_response': {},
                 'help': False
             }
@@ -476,7 +418,7 @@ def dialog_handler(event: dict, context: Any) -> dict:
                 res['user_state_update']['mode'] = 'book_quiz'
             else:
                 res['user_state_update']['mode'] = 'super_quiz'
-            res = get_questions(res)
+            res = get_questions(event, res)
             question = res['user_state_update']['questions'][-1]
             res = return_question(res, question)
             return res
@@ -629,11 +571,10 @@ def quiz_handler(event: dict, res: dict) -> dict:
                 'questions': [],
                 'points': 0,
                 'hearts': 3,
-                'station': res['user_state_update']['station'],
                 'last_response': {},
                 'help': False
             }
-            res = get_questions(res)
+            res = get_questions(event, res)
             question = res['user_state_update']['questions'][-1]
             res = return_question(res, question)
             return res
@@ -747,7 +688,7 @@ def quiz_handler(event: dict, res: dict) -> dict:
             return res
         else:
             if mode == 'super_quiz':
-                res = get_questions(res)
+                res = get_questions(event, res)
                 question = res['user_state_update']['questions'][-1]
                 res = return_question(res, question)
                 return res
@@ -809,7 +750,6 @@ def library_handler(event: dict, res: dict) -> dict:
                 'questions': [],
                 'points': 0,
                 'hearts': 3,
-                'station': res['user_state_update']['station'],
                 'last_response': {},
                 'help': False
             }
@@ -979,9 +919,9 @@ def return_question(res: dict, question_original: dict) -> dict:
     return res
 
 
-def get_questions(res: dict) -> dict:
+def get_questions(event: dict, res: dict) -> dict:
     questions_copy = questions.copy()
-    if res['user_state_update']['station']:
+    if 'screen' not in list(event['meta']['interfaces'].keys()):
         questions_copy = list(filter(lambda x: not x['station'], questions_copy))
     if isinstance(res['user_state_update']['books'], str):
         book = res['user_state_update']['books'].lower()
