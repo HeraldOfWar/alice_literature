@@ -112,6 +112,7 @@ AUTHORS = {"Л.Н. Толстой": "Лев Никол+аевич Толст+о�
            "Цитата из": "Цитата из случайной книги"}
 
 BOOKS = list(books_descriptions.keys())
+BOOK_TEST_IMAGE_ID = '1652229/cd92adb84316e514117e'
 
 RESULTS = {
     5: 'Потрясающий результат, идеально! Вы настоящий знаток в классической литературе, и вашим знаниям можно '
@@ -126,6 +127,19 @@ RESULTS = {
        'том, чтобы ознакомиться с парочкой произведений. К слову, с этим Вам может помочь наша библиотека!',
     0: 'Откровенно плохой результат. Судя по всему, классическая литература обошла Вас стороной, однако никогда '
        'не поздно что-то начать. Советуем посетить нашу библиотеку и ознакомиться с предложенными книгами!'
+}
+TEST_RES = {
+    5: 'Идеально! Кажется, это произведение Вы знаете на все сто! Самое время проверить свои силы в других книгах.',
+    4: 'Отличный результат! Вам совсем чуть-чуть не хватило до идеального результата. Попробуйте ещё раз, чтобы '
+       'не сомневаться в том, что Вы отлично знакомы с данным произведением.',
+    3: 'Очень неплохой результат! Вам ещё есть куда стремиться, однако уже можно сказать, что Вы владеете '
+       'хорошими знаниями об этой книге. Однако стоит немного подучить материал!',
+    2: 'Результат на "троечку". Похоже, Вы имеете лишь поверхностные знания о данной книге, и необходимо их углубить.'
+       'Перед новой попыткой постарайтесь лучше ознакомиться с данной книгой.',
+    1: 'Плохо! Что-то Вы всё же знаете, но этого явно недостаточно для удовлетворительного результата. '
+       'Ознакомьтесь с информацией о данной книге в нашем навыке и попробуйте снова!',
+    0: 'Откровенно плохой результат. Судя по всему, Вы либо вообще не знакомы с данным произведением, либо совсем '
+       'забыли его. Освежите свои знания о данной книге и попробуйте ещё раз!'
 }
 
 GIVE_A_LIFE = [
@@ -145,6 +159,8 @@ LOOSE_A_LIFE = {
 
 def dialog_handler(event: dict, context: Any) -> dict:
     """Основной обработчик запросов пользователя и ответов сервера, принимает на вход request и возвращает response"""
+
+    print(event)
 
     res = {
         'session': event['session'],
@@ -189,11 +205,11 @@ def dialog_handler(event: dict, context: Any) -> dict:
             'help': False
         }
         station = commands['station']['card'].copy()
-        station['description'] = 'Добро пожаловать в навык "Литературный гений"!' + station['description'][8:]
+        station['description'] = 'Добро пожаловать в навык "Викторина по литературе"!' + station['description'][8:]
         res = save_response(
             res=res,
-            text='Добро пожаловать в навык "Литературный гений"!' + commands['station']['text'][8:],
-            tts='Добро пожаловать в навык "Литературный гений"!' + commands['station']['tts'][8:],
+            text='Добро пожаловать в навык "Викторина по литературе"!' + commands['station']['text'][8:],
+            tts='Добро пожаловать в навык "Викторина по литературе"!' + commands['station']['tts'][8:],
             buttons=commands['station']['buttons'],
             card=station
         )
@@ -316,7 +332,7 @@ def dialog_handler(event: dict, context: Any) -> dict:
         return res
 
     if 'menu' in list(event['request']['nlu']['intents'].keys()):
-        if mode in ('quiz', 'super_quiz'):
+        if mode in ('quiz', 'super_quiz', 'book_quiz'):
             res['user_state_update']['mode'] = 'restart' + mode[0]
             res['user_state_update']['help'] = False
             res = save_response(
@@ -379,6 +395,8 @@ def dialog_handler(event: dict, context: Any) -> dict:
         elif 'YANDEX.REJECT' in list(event['request']['nlu']['intents'].keys()):
             if mode[-1] == 'q':
                 res['user_state_update']['mode'] = 'quiz'
+            elif mode[-1] == 'b':
+                res['user_state_update']['mode'] = 'book_quiz'
             else:
                 res['user_state_update']['mode'] = 'super_quiz'
             question = res['user_state_update']['questions'][-1]
@@ -388,27 +406,45 @@ def dialog_handler(event: dict, context: Any) -> dict:
             err_msg = choice(MISUNDERSTANDING)
             res = save_response(
                 res=res,
-                text=err_msg + ' ' + commands['restart']['text'],
-                tts=err_msg + ' ' + commands['restart']['tts'],
+                text=commands['restart']['text'],
+                tts=commands['restart']['tts'],
                 buttons=commands['restart']['buttons']
             )
+            res['response']['tts'] = err_msg + ' ' + commands['restart']['tts']
             return res
 
     if 'finish_game' in mode:
-        res['user_state_update'] = {
-            'mode': 'menu',
-            'books': [],
-            'questions': [],
-            'points': 0,
-            'hearts': 3,
-            'station': res['user_state_update']['station'],
-            'last_response': {},
-            'help': False
-        }
+        if mode[-1] == 'b':
+            res['user_state_update'] = {
+                'mode': 'library',
+                'books': res['user_state_update']['books'],
+                'questions': [],
+                'points': 0,
+                'hearts': 3,
+                'station': res['user_state_update']['station'],
+                'last_response': {},
+                'help': False
+            }
+        else:
+            res['user_state_update'] = {
+                'mode': 'menu',
+                'books': [],
+                'questions': [],
+                'points': 0,
+                'hearts': 3,
+                'station': res['user_state_update']['station'],
+                'last_response': {},
+                'help': False
+            }
         if res['user_state_update']['help']:
-            if mode[-1] == 'q':
-                answer = f'Викторина окончена! Количество правильных ответов: {res["user_state_update"]["points"]}. ' \
-                         f'{RESULTS[res["user_state_update"]["points"] // 4]} {commands["finish_game"]["text"]}'
+            if mode[-1] != 's':
+                if mode[-1] == 'q':
+                    answer = f'Викторина окончена! Количество правильных ответов: ' \
+                             f'{res["user_state_update"]["points"]}. ' \
+                             f'{RESULTS[res["user_state_update"]["points"] // 4]} {commands["finish_game"]["text"]}'
+                elif mode[-1] == 'b':
+                    answer = f'Тест окончен! Количество правильных ответов: {res["user_state_update"]["points"]}. ' \
+                             f'{TEST_RES[res["user_state_update"]["points"] // 2]} {commands["finish_game"]["text"]}'
                 card = commands['finish_game']['card'].copy()
                 card['description'] = answer
                 res = save_response(
@@ -421,8 +457,8 @@ def dialog_handler(event: dict, context: Any) -> dict:
                 return res
             else:
                 answer = f'Супер-игра окончена! Количество правильных ответов: {res["user_state_update"]["points"]}. ' \
-                          f'{RESULTS[min(5, res["user_state_update"]["points"] // 4)]} ' \
-                          f'{commands["finish_game"]["text"]}'
+                         f'{RESULTS[min(5, res["user_state_update"]["points"] // 4)]} ' \
+                         f'{commands["finish_game"]["text"]}'
                 card = commands['finish_game']['card'].copy()
                 card['description'] = answer
                 res = save_response(
@@ -436,6 +472,8 @@ def dialog_handler(event: dict, context: Any) -> dict:
         if 'YANDEX.CONFIRM' in list(event['request']['nlu']['intents'].keys()):
             if mode[-1] == 'q':
                 res['user_state_update']['mode'] = 'quiz'
+            elif mode[-1] == 'b':
+                res['user_state_update']['mode'] = 'book_quiz'
             else:
                 res['user_state_update']['mode'] = 'super_quiz'
             res = get_questions(res)
@@ -443,47 +481,45 @@ def dialog_handler(event: dict, context: Any) -> dict:
             res = return_question(res, question)
             return res
         elif 'YANDEX.REJECT' in list(event['request']['nlu']['intents'].keys()):
-            res = save_response(
-                res=res,
-                text=commands['menu']['text'],
-                tts=commands['menu']['tts'],
-                buttons=commands['menu']['buttons'],
-                card=commands['menu']['card']
-            )
+            if mode[-1] == 'b':
+                return get_book_reference(res,  res['user_state_update']['books'])
+            else:
+                res = save_response(
+                    res=res,
+                    text=commands['menu']['text'],
+                    tts=commands['menu']['tts'],
+                    buttons=commands['menu']['buttons'],
+                    card=commands['menu']['card']
+                )
             return res
         else:
+            answer = choice(MISUNDERSTANDING) + ' '
             if mode[-1] == 'q':
-                answer = choice(MISUNDERSTANDING) + '\n'
-                answer = f'{answer} Викторина окончена! Количество правильных ответов: ' \
-                         f'{res["user_state_update"]["points"]}. {RESULTS[res["user_state_update"]["points"] // 4]} ' \
-                         f'{commands["finish_game"]["text"]}'
-                card = commands['finish_game']['card'].copy()
-                card['description'] = answer
-                res = save_response(
-                    res=res,
-                    text=answer,
-                    tts=answer,
-                    buttons=commands['finish_game']['buttons'],
-                    card=card
-                )
-                return res
+                answer_1 = f'Викторина окончена! Количество правильных ответов: ' \
+                           f'{res["user_state_update"]["points"]}. {RESULTS[res["user_state_update"]["points"] // 4]}' \
+                           f' {commands["finish_game"]["text"]}'
+            elif mode[-1] == 'b':
+                answer_1 = f'Тест окончен! Количество правильных ответов: {res["user_state_update"]["points"]}. ' \
+                           f'{TEST_RES[res["user_state_update"]["points"] // 2]} {commands["finish_game"]["text"]}'
             else:
-                answer = choice(MISUNDERSTANDING) + ' '
-                answer += f'Супер-игра окончена! Количество правильных ответов: {res["user_state_update"]["points"]}.' \
-                          f' {RESULTS[min(5, res["user_state_update"]["points"] // 4)]} ' \
-                          f'{commands["finish_game"]["text"]}'
-                card = commands['finish_game']['card'].copy()
-                card['description'] = answer
-                res = save_response(
-                    res=res,
-                    text=answer,
-                    tts=answer.replace('-', ' '),
-                    buttons=commands['finish_game']['buttons'],
-                    card=card
-                )
-                return res
+                answer_1 = f'Супер-игра окончена! Количество правильных ответов: ' \
+                           f'{res["user_state_update"]["points"]}. ' \
+                           f'{RESULTS[min(5, res["user_state_update"]["points"] // 4)]}' \
+                           f'{commands["finish_game"]["text"]}'
+            card = commands['finish_game']['card'].copy()
+            card['description'] = answer_1
+            res = save_response(
+                res=res,
+                text=answer_1,
+                tts=answer_1.replace('-', ' '),
+                buttons=commands['finish_game']['buttons'],
+                card=card
+            )
+            res['response']['tts'] = answer + answer_1
+            res['response']['card']['description'] = answer + answer_1
+            return res
 
-    if mode == 'quiz' or mode == 'super_quiz':
+    if mode == 'quiz' or mode == 'super_quiz' or mode == 'book_quiz':
         # если пользователь запустил викторину
         return quiz_handler(event, res)
 
@@ -589,7 +625,7 @@ def quiz_handler(event: dict, res: dict) -> dict:
         if 'YANDEX.CONFIRM' in list(event['request']['nlu']['intents'].keys()):
             res['user_state_update'] = {
                 'mode': mode,
-                'books': [],
+                'books': res['user_state_update']['books'],
                 'questions': [],
                 'points': 0,
                 'hearts': 3,
@@ -602,6 +638,9 @@ def quiz_handler(event: dict, res: dict) -> dict:
             res = return_question(res, question)
             return res
         elif 'YANDEX.REJECT' in list(event['request']['nlu']['intents'].keys()):
+            if mode == 'book_quiz':
+                res['user_state_update']['mode'] = 'library'
+                return get_book_reference(event, res['user_state_update']['books'])
             res['user_state_update']['mode'] = 'menu'
             res = save_response(
                 res=res,
@@ -615,11 +654,10 @@ def quiz_handler(event: dict, res: dict) -> dict:
             card = commands[mode]['card'].copy()
             card['description'] += ' Вы готовы начать?'
             err_msg = choice(MISUNDERSTANDING)
-            card['description'] = err_msg + ' ' + card['description']
             res = save_response(
                 res=res,
-                text=err_msg + ' ' + commands[mode]['text'] + ' Вы готовы начать?',
-                tts=err_msg + ' ' + commands[mode]['tts'] + ' Вы готовы начать?',
+                text=commands[mode]['text'] + ' Вы готовы начать?',
+                tts=commands[mode]['tts'] + ' Вы готовы начать?',
                 buttons=[
                     {
                         "title": "Да",
@@ -634,12 +672,22 @@ def quiz_handler(event: dict, res: dict) -> dict:
                 ],
                 card=card
             )
+            res['response']['tts'] = err_msg + ' ' + commands[mode]['tts'] + ' Вы готовы начать?'
+            card['description'] = err_msg + ' ' + card['description']
+            res['response']['card'] = card.copy()
             return res
 
     elif res['user_state_update']['help']:
         res['user_state_update']['help'] = False
         question = res['user_state_update']['questions'][-1]
         res = return_question(res, question)
+        return res
+
+    elif 'repeat_answers' in list(event['request']['nlu']['intents'].keys()):
+        question = res['user_state_update']['questions'][-1]
+        res = return_question(res, question)
+        res['response']['tts'] = 'Повторяю варианты ответа: sil <[250]>' + \
+                                 ' sil <[250]> '.join([b['title'] for b in question['buttons']])
         return res
 
     else:
@@ -658,6 +706,7 @@ def quiz_handler(event: dict, res: dict) -> dict:
                     flag = False
                     break
         if flag:
+            answer = ''
             if mode == 'super_quiz':
                 res['user_state_update']['hearts'] -= 1
                 answer = choice(WRONGANS) + ' ' + choice(LOOSE_A_LIFE[res['user_state_update']['hearts']]) + ' '
@@ -677,10 +726,8 @@ def quiz_handler(event: dict, res: dict) -> dict:
                         card=card
                     )
                     return res
-            elif mode == 'quiz':
+            elif mode == 'quiz' or mode == 'book_quiz':
                 answer = choice(WRONGANS) + ' '
-            else:
-                answer = ''
         else:
             res['user_state_update']['points'] += 1
             answer = choice(TRUEANS) + ' '
@@ -697,8 +744,6 @@ def quiz_handler(event: dict, res: dict) -> dict:
             res['response']['card']['description'] = answer + res['response']['card']['description']
             if chance == 1:
                 res['response']['card']['image_id'] = choice(IMAGES_GIVE_A_LIVE)
-            res['user_state_update']['last_response']['tts'] = res['response']['tts']
-            res['user_state_update']['last_response']['card'] = res['response']['card']
             return res
         else:
             if mode == 'super_quiz':
@@ -708,23 +753,29 @@ def quiz_handler(event: dict, res: dict) -> dict:
                 return res
             else:
                 res['user_state_update']['mode'] = 'finish_game' + mode[0]
-                answer = f'{answer} Викторина окончена! Количество правильных ответов: {res["user_state_update"]["points"]}. ' \
-                         f'{RESULTS[res["user_state_update"]["points"] // 4]} {commands["finish_game"]["text"]}'
+                if mode == 'quiz':
+                    answer_1 = f'Викторина окончена! Количество правильных ответов: ' \
+                               f'{res["user_state_update"]["points"]}. ' \
+                               f'{RESULTS[res["user_state_update"]["points"] // 4]} {commands["finish_game"]["text"]}'
+                else:
+                    answer_1 = f'Тест окончен! Количество правильных ответов: {res["user_state_update"]["points"]}. ' \
+                               f'{TEST_RES[res["user_state_update"]["points"] // 2]} {commands["finish_game"]["text"]}'
                 card = commands['finish_game']['card'].copy()
-                card['description'] = answer
+                card['description'] = answer_1
                 res = save_response(
                     res=res,
-                    text=answer,
-                    tts=answer,
+                    text=answer_1,
+                    tts=answer_1,
                     buttons=commands['finish_game']['buttons'],
                     card=card
                 )
+                res['response']['tts'] = answer + answer_1
+                res['response']['card']['description'] = answer + answer_1
                 return res
 
 
 def library_handler(event: dict, res: dict) -> dict:
     mode = res['user_state_update']['mode']
-    print(event)
 
     if not res['user_state_update']['books']:
         if res['user_state_update']['help']:
@@ -847,8 +898,30 @@ def library_handler(event: dict, res: dict) -> dict:
             book_mode = 'char_description'
         elif 'facts_books' in list(event['request']['nlu']['intents'].keys()):
             book_mode = 'facts'
-        elif 'links_books' in list(event['request']['nlu']['intents'].keys()):
-            book_mode = 'useful_links'
+        elif 'book_test' in list(event['request']['nlu']['intents'].keys()):
+            mode = 'book_quiz'
+            res['user_state_update']['mode'] = mode
+            card = commands[mode]['card'].copy()
+            card['description'] += ' Вы готовы начать?'
+            res = save_response(
+                res=res,
+                text=commands[mode]['text'] + ' Вы готовы начать?',
+                tts=commands[mode]['tts'] + ' Вы готовы начать?',
+                buttons=[
+                    {
+                        "title": "Да",
+                        "payload": {},
+                        "hide": True
+                    },
+                    {
+                        "title": "Нет",
+                        "payload": {},
+                        "hide": True
+                    }
+                ],
+                card=card
+            )
+            return res
         else:
             err_msg = choice(MISLIBR_INTO)
             res['response']['text'] = err_msg + '  ' + res['user_state_update']['last_response']['text']
@@ -894,6 +967,11 @@ def return_question(res: dict, question_original: dict) -> dict:
                 "title": "Повтори",
                 "payload": {},
                 "hide": True
+            },
+            {
+                "title": "Варианты ответа",
+                "payload": {},
+                "hide": True
             }
         ],
         card=question['card']
@@ -905,6 +983,9 @@ def get_questions(res: dict) -> dict:
     questions_copy = questions.copy()
     if res['user_state_update']['station']:
         questions_copy = list(filter(lambda x: not x['station'], questions_copy))
+    if isinstance(res['user_state_update']['books'], str):
+        book = res['user_state_update']['books'].lower()
+        questions_copy = list(filter(lambda x: book in x['book'].lower(), questions_copy))
     shuffle(questions_copy)
     res['user_state_update']['questions'] = questions_copy[:20]
     return res
@@ -985,11 +1066,11 @@ def get_book_reference(res: dict, book: str) -> dict:
         "type": "ImageGallery",
         "items": []
     }
-    text = f'Вы выбрали произведение {book}. Скажите, что хотите узнать о нём. Я могу' \
-           f' рассказать основную информацию о книге, о персонажах, а также поделиться интересными фактами. Для ' \
-           f'выбора произнесите название одного из режимов: "Основная информация", sil <[250]>  "Персонажи" или ' \
-           f'sil <[150]> "Факты". Также Вы можете вернуться обратно на витрину и выбрать другую книгу. ' \
-           f'Для этого скажите "Витрина".'
+    text = f'Вы выбрали произведение {book}. Скажите, что хотите узнать о нём. Я могу рассказать основную ' \
+           f'информацию о книге, о персонажах, а также поделиться интересными фактами. Для выбора произнесите ' \
+           f'название одного из режимов: "Основная информация", sil <[250]>  "Персонажи" или sil <[150]> "Факты". ' \
+           f'Также Вы можете пройти тест по данной книге, ответив на 10 случайных вопросов. Для этого скажите "Тест".' \
+           f' Кроме того, можно вернуться обратно на витрину и выбрать другую книгу. Для этого скажите "Витрина".'
     buttons = [
         {
             "title": 'К витрине',
@@ -1019,6 +1100,27 @@ def get_book_reference(res: dict, book: str) -> dict:
                 "hide": True
             }
         )
+    card['items'].append(
+        {
+            "image_id": BOOK_TEST_IMAGE_ID,
+            "title": 'Тест',
+            "button": {
+                "text": "Тест",
+                "payload": {
+                    "title": "тест"
+                }
+            }
+        }
+    )
+    buttons.append(
+        {
+            "title": 'Тест',
+            "payload": {
+                "title": 'тест'
+            },
+            "hide": True
+        }
+    )
     res = save_response(
         res=res,
         text=text,
@@ -1066,6 +1168,15 @@ def get_book_info(res: dict, book: str, mode: str) -> dict:
                     "hide": True
                 }
             )
+    buttons.append(
+        {
+            "title": 'Тест',
+            "payload": {
+                "title": 'тест'
+            },
+            "hide": True
+        }
+    )
     res = save_response(
         res=res,
         text=books_descriptions[book][mode]['text'],
@@ -1095,13 +1206,13 @@ def get_book_info(res: dict, book: str, mode: str) -> dict:
 def save_response(res: dict, text: str, tts: str, buttons: list, card: dict = None) -> dict:
     res['response']['text'] = text
     res['response']['tts'] = tts
-    res['response']['buttons'] = buttons
+    res['response']['buttons'] = buttons.copy()
     res['user_state_update']['last_response'] = {
         'text': text,
         'tts': tts,
-        'buttons': buttons
+        'buttons': buttons.copy()
     }
     if card:
-        res['response']['card'] = card
-        res['user_state_update']['last_response']['card'] = card
+        res['response']['card'] = card.copy()
+        res['user_state_update']['last_response']['card'] = card.copy()
     return res
