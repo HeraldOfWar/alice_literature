@@ -587,7 +587,7 @@ def quiz_handler(event: dict, res: dict) -> dict:
         elif 'YANDEX.REJECT' in list(event['request']['nlu']['intents'].keys()):
             if mode == 'book_quiz':
                 res['user_state_update']['mode'] = 'library'
-                return get_book_reference(event, res['user_state_update']['books'])
+                return get_book_reference(res, res['user_state_update']['books'])
             res['user_state_update']['mode'] = 'menu'
             res = save_response(
                 res=res,
