@@ -51,7 +51,7 @@ TRUEANS = [
     "Именно так! Это было непросто, но Вы справились.",
     "Точно! Это был трудный вопрос, но Вы сумели ответить верно.",
     "Верный ответ! Вы настоящий знаток литературы.", "Отлично! Вы демонстрируете высокий уровень знаний.",
-    "Да, это правильный ответ! Вы действительно знаете свою литературу.",
+    "Да, это правильный ответ! Вы действительно хорошо знаете литературу.",
     "Ваш ответ точен, как рифма в стихотворении Пушкина.",
     "Отлично, Вы на правильном пути! Как молодой Холмс, разгадывающий загадки.",
     "Именно так, как Шерлок Холмс, Вы нашли ключ к правильному ответу.",
@@ -364,26 +364,6 @@ def dialog_handler(event: dict, context: Any) -> dict:
             return res
 
     if 'finish_game' in mode:
-        if mode[-1] == 'b':
-            res['user_state_update'] = {
-                'mode': 'library',
-                'books': res['user_state_update']['books'],
-                'questions': [],
-                'points': 0,
-                'hearts': 3,
-                'last_response': {},
-                'help': False
-            }
-        else:
-            res['user_state_update'] = {
-                'mode': 'menu',
-                'books': [],
-                'questions': [],
-                'points': 0,
-                'hearts': 3,
-                'last_response': {},
-                'help': False
-            }
         if res['user_state_update']['help']:
             if mode[-1] != 's':
                 if mode[-1] == 'q':
@@ -420,18 +400,63 @@ def dialog_handler(event: dict, context: Any) -> dict:
         if 'YANDEX.CONFIRM' in list(event['request']['nlu']['intents'].keys()):
             if mode[-1] == 'q':
                 res['user_state_update']['mode'] = 'quiz'
+                res['user_state_update'] = {
+                    'mode': 'menu',
+                    'books': [],
+                    'questions': [],
+                    'points': 0,
+                    'hearts': 3,
+                    'last_response': {},
+                    'help': False
+                }
             elif mode[-1] == 'b':
                 res['user_state_update']['mode'] = 'book_quiz'
+                res['user_state_update'] = {
+                    'mode': 'library',
+                    'books': res['user_state_update']['books'],
+                    'questions': [],
+                    'points': 0,
+                    'hearts': 3,
+                    'last_response': {},
+                    'help': False
+                }
             else:
                 res['user_state_update']['mode'] = 'super_quiz'
+                res['user_state_update'] = {
+                    'mode': 'menu',
+                    'books': [],
+                    'questions': [],
+                    'points': 0,
+                    'hearts': 3,
+                    'last_response': {},
+                    'help': False
+                }
             res = get_questions(event, res)
             question = res['user_state_update']['questions'][-1]
             res = return_question(res, question)
             return res
         elif 'YANDEX.REJECT' in list(event['request']['nlu']['intents'].keys()):
             if mode[-1] == 'b':
+                res['user_state_update'] = {
+                    'mode': 'library',
+                    'books': res['user_state_update']['books'],
+                    'questions': [],
+                    'points': 0,
+                    'hearts': 3,
+                    'last_response': {},
+                    'help': False
+                }
                 return get_book_reference(res,  res['user_state_update']['books'])
             else:
+                res['user_state_update'] = {
+                    'mode': 'menu',
+                    'books': [],
+                    'questions': [],
+                    'points': 0,
+                    'hearts': 3,
+                    'last_response': {},
+                    'help': False
+                }
                 res = save_response(
                     res=res,
                     text=commands['menu']['text'],
@@ -440,6 +465,17 @@ def dialog_handler(event: dict, context: Any) -> dict:
                     card=commands['menu']['card']
                 )
             return res
+        elif 'books_gallery' in list(event['request']['nlu']['intents'].keys()) and mode[-1] == 'b':
+            res['user_state_update'] = {
+                'mode': 'library',
+                'books': [],
+                'questions': [],
+                'points': 0,
+                'hearts': 3,
+                'last_response': {},
+                'help': False
+            }
+            return return_books(res)
         else:
             answer = choice(MISUNDERSTANDING) + ' '
             if mode[-1] == 'q':
@@ -545,6 +581,18 @@ def menu_handler(event: dict, res: dict) -> dict:
 def quiz_handler(event: dict, res: dict) -> dict:
     mode = res['user_state_update']['mode']
 
+    if 'books_gallery' in list(event['request']['nlu']['intents'].keys()) and mode[0] == 'b':
+        res['user_state_update']['help'] = False
+        res['user_state_update'] = {
+            'mode': 'library',
+            'books': [],
+            'questions': [],
+            'points': 0,
+            'hearts': 3,
+            'last_response': {},
+            'help': False
+        }
+        return return_books(res)
     if not res['user_state_update']['questions']:
         if res['user_state_update']['help']:
             res['user_state_update']['help'] = False
